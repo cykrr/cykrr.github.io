@@ -1,0 +1,164 @@
+---
+import background from "../../assets/background.svg";
+import Layout from "@/layouts/Layout.astro";
+import NavBar from "@/components/NavBar.astro";
+import logoCsharp from "@/assets/badges/logo-csharp.png";
+import logoUnity from "@/assets/badges/logo-unity.png";
+import logoGhPages from "@/assets/badges/logo-gh-pages.png";
+
+import biolabEscapeScreenshot from "@/assets/previews/biolab-escape.png";
+
+// Nota: En un entorno real, DESCARGA estos logos a tu carpeta local /assets/ o /public/.
+// No dependas de URLs externas para producción.
+const techStack = [
+    {
+        name: "Unity",
+        src: logoUnity.src,
+        class: "h-16", // Altura estandarizada
+    },
+    {
+        name: "C#",
+        src: logoCsharp.src,
+        class: "h-16", // Ligeramente más alto para compensar aspecto cuadrado
+    },
+    {
+        name: "GitHub Pages",
+        src: logoGhPages.src,
+        class: "h-16", // Reducido drásticamente de tu h-36 original
+    },
+];
+
+const developers = [
+    "Oscar Rojas Gaete",
+    "Sebastián Jeria López",
+    "Makarena Abarca Letelier",
+    "Veronica Rojas Duran",
+    "Silvana Roncagliolo de la Horra",
+];
+---
+
+<Layout>
+    <div class="fixed inset-0 -z-10 h-full w-full overflow-hidden isolate">
+        <img
+            src={background.src}
+            alt=""
+            fetchpriority="high"
+            class="h-full w-full object-cover blur-3xl opacity-60 scale-110"
+        />
+        <div class="absolute inset-0 bg-linear-to-b from-white/30 to-white/80">
+        </div>
+    </div>
+
+    <div
+        class="relative mx-auto flex h-full w-full max-w-7xl flex-col px-6 lg:px-8"
+    >
+        <NavBar />
+
+        <main class="flex flex-col justify-center py-16 sm:py-24">
+            <h1
+                class="mb-6 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-6xl text-balance"
+            >
+                Biolab Escape
+            </h1>
+
+            {
+                /* Contenedor Principal: Grid de 1 col en móvil, 2 cols en desktop */
+            }
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
+            >
+                {/* Columna Izquierda: Textos y Equipo */}
+                <div
+                    class="leading-relaxed text-gray-700 text-pretty space-y-8"
+                >
+                    <p>
+                        Bio Lab Escape es un juego de carrera continua similar
+                        al del dinosaurio de Google, donde controlas a un
+                        científico que intenta escapar de un laboratorio.
+                    </p>
+                    <p>
+                        Tu misión es esquivar obstáculos que restan vidas y
+                        recolectar 5 objetos específicos para avanzar de nivel.
+                        La mecánica combina habilidad y conocimientos: para
+                        conseguir los objetos, debes responder preguntas de
+                        selección múltiple identificando afirmaciones verdaderas
+                        o falsas mediante iconos de tubos de ensayo.
+                    </p>
+
+                    <div class="border-l-4 border-orange-200 pl-4">
+                        <h3 class="font-semibold text-gray-900">
+                            Equipo de Desarrollo:
+                        </h3>
+                        <ul
+                            class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1"
+                        >
+                            {
+                                developers.map((dev) => (
+                                    <li class="text-gray-600 text-base">
+                                        {dev}
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="mt-10 flex gap-4">
+                        <a
+                            href="https://www.krr.cl/biolab-escape"
+                            class="inline-flex items-center justify-center rounded-xl bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-600/20 transition-all hover:bg-orange-700 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                        >
+                            Ir al juego
+                            <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="ml-2 h-4 w-4"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative group lg:mt-16">
+                    <div
+                        class="from-orange-400 to-orange-600 "
+                    >
+                        <img
+                            src={biolabEscapeScreenshot.src}
+                            alt="Biolab Escape Preview"
+                            class="h-48 rounded-2xl  "
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 border-t border-gray-200/60 pt-8">
+                <h2
+                    class="text-sm font-semibold uppercase tracking-wider text-gray-500"
+                >
+                    Tecnologías aplicadas
+                </h2>
+
+                <div
+                    class="mt-6 flex flex-wrap items-center gap-8 opacity-75 grayscale transition-all duration-500 hover:grayscale-0 hover:opacity-100"
+                >
+                    {
+                        techStack.map((tech) => (
+                            <img
+                                src={tech.src}
+                                alt={tech.name}
+                                class={`${tech.class} w-auto object-contain`}
+                                loading="lazy"
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+        </main>
+    </div>
+</Layout>

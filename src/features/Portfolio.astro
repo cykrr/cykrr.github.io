@@ -1,0 +1,163 @@
+---
+import NavBar from "@/components/NavBar.astro";
+
+import biolabEscapeThumbnail from "@/assets/biolab_escape.jpg";
+
+import planetariumVrThumbnail from "@/assets/planetarium_vr_320x240.png";
+import floreriaCoralThumbnail from "@/assets/previews/floreria-coral.png";
+---
+
+<div id="container">
+    <main>
+        <h2>Diseño Web y Branding</h2>
+
+        <div class="cards-grid">
+            <div class="card-item">
+                <a href="/portfolio/floreria-coral" class="card-link">
+                    <img src={floreriaCoralThumbnail.src} alt="Florería Coral" />
+                </a>
+                <label class="card-label">Florería Coral</label>
+            </div>
+        </div>
+
+        <h2>Videojuegos Educativos</h2>
+
+        <div class="cards-grid">
+            <div class="card-item">
+                <a href="/portfolio/biolab-escape" class="card-link">
+                    <img src={biolabEscapeThumbnail.src} alt="Biolab Escape" />
+                </a>
+                <label class="card-label">Biolab Escape</label>
+            </div>
+
+            <div class="card-item">
+                <a href="/portfolio/planetarium-vr" class="card-link">
+                    <img src={planetariumVrThumbnail.src} style="width: 60%; height: auto;" alt="PlanetariumVR" />
+                </a>
+                <label class="card-label">PlanetariumVR</label>
+            </div>
+        </div>
+
+        </main>
+</div>
+
+
+<style>
+    /* 1. Global/Container Styles */
+    :root {
+        /* Define a consistent palette */
+        --primary-color: #3f51b5; /* A nice blue/indigo */
+        --text-color: #333;
+        --card-bg-color: #ffffff; /* White card background */
+        --card-shadow-light: rgba(0, 0, 0, 0.08);
+        --card-shadow-hover: rgba(0, 0, 0, 0.15);
+    }
+
+    #container {
+        font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova",
+            "Nimbus Sans", Arial, sans-serif;
+        color: var(--text-color);
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto; /* Center the container on the page */
+        padding: 0 16px; /* Add padding on the sides for smaller screens */
+    }
+
+    main {
+        padding: 32px 0; /* Add vertical padding */
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-top: 40px;
+        margin-bottom: 24px;
+        color: var(--primary-color); /* Highlight the section title */
+    }
+
+    /* 2. Grid/Layout Styles (Responsive) */
+    .cards-grid {
+        display: grid;
+        /* Default: 1 column on very small screens */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 24px;
+        justify-content: start;
+    }
+
+    /* 3. Card Styles */
+    .card-item {
+        /* The container for the entire card (image + label) */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        /* Using background and box-shadow for a clean floating effect */
+        background-color: var(--card-bg-color);
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 4px 12px var(--card-shadow-light);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-item:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 0 8px 20px var(--card-shadow-hover);
+    }
+
+    .card-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* Make the link fill the card width for click area */
+        height: 180px; /* Give a fixed area for the image */
+        margin-bottom: 12px;
+        border-radius: 8px;
+        overflow: hidden; /* Ensure image corners are clipped */
+    }
+
+    img {
+        /* Ensure images scale correctly within the link box */
+        width: 100%;
+        max-width: 200px; /* Max size for the image */
+        height: auto;
+        object-fit: contain; /* Ensures the whole image is visible */
+        transition: transform 0.3s ease;
+    }
+
+    .card-link:hover img {
+        transform: scale(1.05); /* Subtle zoom on image hover */
+    }
+
+    .card-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-color);
+        padding-top: 4px;
+    }
+
+    /* 4. Media Queries for smaller screens */
+    @media screen and (max-width: 768px) {
+        .cards-grid {
+             /* Adjust grid for tablets/larger phones */
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 16px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        /* Stack cards on very small screens if necessary */
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .card-link {
+            height: 150px;
+        }
+    }
+</style>
