@@ -1,10 +1,10 @@
 ---
 import NavBar from "@/components/NavBar.astro";
 
-import biolabEscapeThumbnail from "@/assets/biolab_escape.jpg";
+import biolabEscapeThumbnail from "@/assets/logo-biolab-escape.png"
 
 import planetariumVrThumbnail from "@/assets/planetarium_vr_320x240.png";
-import floreriaCoralThumbnail from "@/assets/previews/floreria-coral.png";
+import floreriaCoralThumbnail from "@/assets/logo-floreria-coral.png"
 ---
 
 <div id="container">
@@ -14,7 +14,7 @@ import floreriaCoralThumbnail from "@/assets/previews/floreria-coral.png";
         <div class="cards-grid">
             <div class="card-item">
                 <a href="/portfolio/floreria-coral" class="card-link">
-                    <img src={floreriaCoralThumbnail.src} alt="Florería Coral" />
+                    <img class="h-40" src={floreriaCoralThumbnail.src} alt="Florería Coral" />
                 </a>
                 <label class="card-label">Florería Coral</label>
             </div>
@@ -25,7 +25,7 @@ import floreriaCoralThumbnail from "@/assets/previews/floreria-coral.png";
         <div class="cards-grid">
             <div class="card-item">
                 <a href="/portfolio/biolab-escape" class="card-link">
-                    <img src={biolabEscapeThumbnail.src} alt="Biolab Escape" />
+                    <img class="h-16" src={biolabEscapeThumbnail.src} alt="Biolab Escape" />
                 </a>
                 <label class="card-label">Biolab Escape</label>
             </div>
@@ -117,9 +117,11 @@ import floreriaCoralThumbnail from "@/assets/previews/floreria-coral.png";
 
     img {
         /* Ensure images scale correctly within the link box */
-        width: 100%;
-        max-width: 200px; /* Max size for the image */
+        /* width: 100%;
+        max-width: 200px; 
+        
         height: auto;
+        */
         object-fit: contain; /* Ensures the whole image is visible */
         transition: transform 0.3s ease;
     }
