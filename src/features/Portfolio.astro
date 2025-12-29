@@ -1,165 +1,66 @@
 ---
 import NavBar from "@/components/NavBar.astro";
-
 import biolabEscapeThumbnail from "@/assets/logo-biolab-escape.png"
-
-import planetariumVrThumbnail from "@/assets/planetarium_vr_320x240.png";
+import planetariumVrThumbnail from "@/assets/badges/sun.png";
 import floreriaCoralThumbnail from "@/assets/logo-floreria-coral.png"
 ---
 
-<div id="container">
-    <main>
-        <h2>Diseño Web y Branding</h2>
+<div class="w-full max-w-[1280px] mx-auto px-4 font-sans text-[#333]">
+    
+    <main class="py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
-        <div class="cards-grid">
-            <div class="card-item">
-                <a href="/portfolio/floreria-coral" class="card-link">
-                    <img class="h-40" src={floreriaCoralThumbnail.src} alt="Florería Coral" />
-                </a>
-                <label class="card-label">Florería Coral</label>
+        <section class="flex flex-col h-full">
+            <h2 class="text-3xl font-bold mt-10 mb-6 text-[#3f51b5]">
+                Diseño Web y Branding
+            </h2>
+
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+                
+                <div class="group flex flex-col items-center bg-white rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
+                    <a href="/portfolio/floreria-coral" class="flex justify-center items-center w-full h-[180px] mb-3 rounded-lg overflow-hidden">
+                        <img 
+                            class="h-40 object-contain transition-transform duration-300 group-hover:scale-105" 
+                            src={floreriaCoralThumbnail.src} 
+                            alt="Florería Coral" 
+                        />
+                    </a>
+                    <label class="text-lg font-semibold pt-1 cursor-pointer">Florería Coral</label>
+                </div>
+
             </div>
-        </div>
+        </section>
 
-        <h2>Videojuegos Educativos</h2>
+        <section class="flex flex-col h-full">
+            <h2 class="text-3xl font-bold mt-10 mb-6 text-[#3f51b5]">
+                Videojuegos Educativos
+            </h2>
 
-        <div class="cards-grid">
-            <div class="card-item">
-                <a href="/portfolio/biolab-escape" class="card-link">
-                    <img class="h-16" src={biolabEscapeThumbnail.src} alt="Biolab Escape" />
-                </a>
-                <label class="card-label">Biolab Escape</label>
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+                
+                <div class="group flex flex-col items-center bg-white rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
+                    <a href="/portfolio/biolab-escape" class="flex justify-center items-center w-full h-[180px] mb-3 rounded-lg overflow-hidden">
+                        <img 
+                            class="h-16 object-contain transition-transform duration-300 group-hover:scale-105" 
+                            src={biolabEscapeThumbnail.src} 
+                            alt="Biolab Escape" 
+                        />
+                    </a>
+                    <label class="text-lg font-semibold pt-1 cursor-pointer">Biolab Escape</label>
+                </div>
+
+                <div class="group flex flex-col items-center bg-white rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
+                    <a href="/portfolio/planetarium-vr" class="flex justify-center items-center w-full h-[180px] mb-3 rounded-lg overflow-hidden">
+                        <img 
+                            class="w-[60%] h-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+                            src={planetariumVrThumbnail.src} 
+                            alt="PlanetariumVR" 
+                        />
+                    </a>
+                    <label class="text-lg font-semibold pt-1 cursor-pointer">PlanetariumVR</label>
+                </div>
+
             </div>
+        </section>
 
-            <div class="card-item">
-                <a href="/portfolio/planetarium-vr" class="card-link">
-                    <img src={planetariumVrThumbnail.src} style="width: 60%; height: auto;" alt="PlanetariumVR" />
-                </a>
-                <label class="card-label">PlanetariumVR</label>
-            </div>
-        </div>
-
-        </main>
+    </main>
 </div>
-
-
-<style>
-    /* 1. Global/Container Styles */
-    :root {
-        /* Define a consistent palette */
-        --primary-color: #3f51b5; /* A nice blue/indigo */
-        --text-color: #333;
-        --card-bg-color: #ffffff; /* White card background */
-        --card-shadow-light: rgba(0, 0, 0, 0.08);
-        --card-shadow-hover: rgba(0, 0, 0, 0.15);
-    }
-
-    #container {
-        font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova",
-            "Nimbus Sans", Arial, sans-serif;
-        color: var(--text-color);
-        width: 100%;
-        max-width: 1280px;
-        margin: 0 auto; /* Center the container on the page */
-        padding: 0 16px; /* Add padding on the sides for smaller screens */
-    }
-
-    main {
-        padding: 32px 0; /* Add vertical padding */
-    }
-
-    h2 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin-top: 40px;
-        margin-bottom: 24px;
-        color: var(--primary-color); /* Highlight the section title */
-    }
-
-    /* 2. Grid/Layout Styles (Responsive) */
-    .cards-grid {
-        display: grid;
-        /* Default: 1 column on very small screens */
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 24px;
-        justify-content: start;
-    }
-
-    /* 3. Card Styles */
-    .card-item {
-        /* The container for the entire card (image + label) */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        /* Using background and box-shadow for a clean floating effect */
-        background-color: var(--card-bg-color);
-        border-radius: 12px;
-        padding: 16px;
-        box-shadow: 0 4px 12px var(--card-shadow-light);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card-item:hover {
-        transform: translateY(-5px); /* Lift effect on hover */
-        box-shadow: 0 8px 20px var(--card-shadow-hover);
-    }
-
-    .card-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%; /* Make the link fill the card width for click area */
-        height: 180px; /* Give a fixed area for the image */
-        margin-bottom: 12px;
-        border-radius: 8px;
-        overflow: hidden; /* Ensure image corners are clipped */
-    }
-
-    img {
-        /* Ensure images scale correctly within the link box */
-        /* width: 100%;
-        max-width: 200px; 
-        
-        height: auto;
-        */
-        object-fit: contain; /* Ensures the whole image is visible */
-        transition: transform 0.3s ease;
-    }
-
-    .card-link:hover img {
-        transform: scale(1.05); /* Subtle zoom on image hover */
-    }
-
-    .card-label {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--text-color);
-        padding-top: 4px;
-    }
-
-    /* 4. Media Queries for smaller screens */
-    @media screen and (max-width: 768px) {
-        .cards-grid {
-             /* Adjust grid for tablets/larger phones */
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 16px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 16px;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        /* Stack cards on very small screens if necessary */
-        .cards-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .card-link {
-            height: 150px;
-        }
-    }
-</style>

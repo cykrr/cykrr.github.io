@@ -1,0 +1,141 @@
+---
+import background from "../../assets/background.svg";
+import Layout from "@/layouts/Layout.astro";
+import NavBar from "@/components/NavBar.astro";
+
+import logoUnity from "@/assets/badges/logo-unity.png";
+import logoCsharp from "@/assets/badges/logo-csharp.png";
+import logoAndroid from "@/assets/badges/android-logo.svg"; 
+
+import planetariumPreview from "@/assets/previews/planetarium-vr.png";
+
+const techStack = [
+    { name: "Unity", src: logoUnity.src, class: "h-16" },
+    { name: "C#", src: logoCsharp.src, class: "h-16" },
+    { name: "Android", src: logoAndroid.src, class: "h-16" },
+];
+
+const developers = [
+    "Oscar Rojas Gaete",
+    "Sebastián Jeria López",
+    "Benjamín Robles Varas",
+    "Esteban Carrasco",
+];
+
+// URLs de recursos - Reemplaza con tus links reales
+const resources = {
+    apk: "https://drive.google.com/file/d/15iG5YSNSe9tON2jddYGFWGzobvNgmfvF/view?usp=drive_link", // Link a la descarga del APK
+    paper: "https://drive.google.com/file/d/1tiCZKmM5dPeR4aoe2jfIANety2N2PT6c/view",
+    presentation: "https://drive.google.com/file/d/1bsfdamwXu0IlHVP8dhOZWGXoySFqibLE/view?usp=drive_link", // Link a tu Google Slides o Keynote
+    video_demo: "https://www.youtube.com/embed/yPfOdVHTRV0"
+};
+---
+
+<Layout>
+    <div class="fixed inset-0 -z-10 h-full w-full overflow-hidden isolate">
+        <img src={background.src} alt="" class="h-full w-full object-cover blur-3xl opacity-60 scale-110" />
+        <div class="absolute inset-0 bg-linear-to-b from-white/30 to-white/80"></div>
+    </div>
+
+    <div class="relative mx-auto flex h-full w-full max-w-7xl flex-col px-6 lg:px-8">
+        <NavBar />
+
+        <main class="flex flex-col justify-center py-16 sm:py-24">
+            <h1 class="mb-6 text-4xl font-extrabold tracking-tight text-blue-900 sm:text-6xl text-balance">
+                PlanetariumVR
+            </h1>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="leading-relaxed text-gray-700 text-pretty space-y-8">
+                    <p>
+                        PlanetariumVR es una plataforma informativa de Realidad Virtual (VR) 
+                        enfocada en la exploración inmersiva del sistema solar. 
+                        Permite interactuar con modelos 3D y aprender sobre masa, radio y 
+                        descripciones generales de cada cuerpo celeste.
+                    </p>
+
+                    <div class="border-l-4 border-blue-200 pl-4">
+                        <h3 class="font-semibold text-gray-900">Equipo de Desarrollo:</h3>
+                        <ul class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
+                            {developers.map((dev) => <li class="text-gray-600 text-base">{dev}</li>)}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative group lg:mt-16">
+                    <div class="overflow-hidden rounded-2xl shadow-2xl">
+                        <img src={planetariumPreview.src} alt="PlanetariumVR Preview" class="w-full" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+                    <span class="h-8 w-1 bg-red-600 rounded-full"></span>
+                    Demostración del Prototipo
+                </h2>
+                <div class="relative w-full overflow-hidden rounded-3xl bg-gray-900 shadow-2xl aspect-video">
+                    <iframe
+                        class="absolute inset-0 h-full w-full"
+                        src={resources.video_demo}
+                        title="PlanetariumVR Demo Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+
+            {/* Nueva Sección de Recursos */}
+            <div class="mt-20">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+                    <span class="h-8 w-1 bg-blue-600 rounded-full"></span>
+                    Recursos del Proyecto
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Botón APK */}
+                    <a href={resources.apk} class="group p-6 bg-white/50 backdrop-blur-sm border border-gray-200 rounded-2xl hover:border-blue-400 hover:bg-white transition-all">
+                        <div class="text-blue-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Descargar APK</h3>
+                        <p class="text-sm text-gray-500 mt-2">Instalador para dispositivos Android VR.</p>
+                    </a>
+
+                    {/* Botón Paper */}
+                    <a href={resources.paper} target="_blank" class="group p-6 bg-white/50 backdrop-blur-sm border border-gray-200 rounded-2xl hover:border-blue-400 hover:bg-white transition-all">
+                        <div class="text-blue-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Ver Paper Técnico</h3>
+                        <p class="text-sm text-gray-500 mt-2">Detalles sobre arquitectura y metodología.</p>
+                    </a>
+
+                    {/* Botón Presentación */}
+                    <a href={resources.presentation} class="group p-6 bg-white/50 backdrop-blur-sm border border-gray-200 rounded-2xl hover:border-blue-400 hover:bg-white transition-all">
+                        <div class="text-blue-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Presentación</h3>
+                        <p class="text-sm text-gray-500 mt-2">Diapositivas y resumen ejecutivo del proyecto.</p>
+                    </a>
+                </div>
+            </div>
+
+            {/* Tech Stack */}
+            <div class="mt-16 border-t border-gray-200/60 pt-8">
+                <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-500">Tecnologías aplicadas</h2>
+                <div class="mt-6 flex flex-wrap items-center gap-8 opacity-75 grayscale transition-all hover:grayscale-0 hover:opacity-100">
+                    {techStack.map((tech) => <img src={tech.src} alt={tech.name} class={`${tech.class} w-auto object-contain`} loading="lazy" />)}
+                </div>
+            </div>
+        </main>
+    </div>
+</Layout>
