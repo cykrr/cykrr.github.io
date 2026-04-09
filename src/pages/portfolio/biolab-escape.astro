@@ -8,29 +8,28 @@ import logoGhPages from "@/assets/badges/logo-gh-pages.png";
 
 import biolabEscapeScreenshot from "@/assets/previews/biolab-escape.png";
 
-// Nota: En un entorno real, DESCARGA estos logos a tu carpeta local /assets/ o /public/.
-// No dependas de URLs externas para producción.
 const techStack = [
     {
         name: "Unity",
         src: logoUnity.src,
-        class: "h-16", // Altura estandarizada
+        class: "h-16",
     },
     {
         name: "C#",
         src: logoCsharp.src,
-        class: "h-16", // Ligeramente más alto para compensar aspecto cuadrado
+        class: "h-16",
     },
     {
         name: "GitHub Pages",
         src: logoGhPages.src,
-        class: "h-16", // Reducido drásticamente de tu h-36 original
+        class: "h-16",
     },
 ];
 
 const developers = [
     "Oscar Rojas Gaete",
     "Sebastián Jeria López",
+    "Benjamín Robles",
     "Makarena Abarca Letelier",
     "Veronica Rojas Duran",
     "Silvana Roncagliolo de la Horra",
@@ -38,127 +37,163 @@ const developers = [
 ---
 
 <Layout>
-    <div class="fixed inset-0 -z-10 h-full w-full overflow-hidden isolate">
-        <img
-            src={background.src}
-            alt=""
-            fetchpriority="high"
-            class="h-full w-full object-cover blur-3xl opacity-60 scale-110"
-        />
-        <div class="absolute inset-0 bg-linear-to-b from-white/30 to-white/80">
-        </div>
-    </div>
-
-    <div
-        class="relative mx-auto flex h-full w-full max-w-7xl flex-col px-6 lg:px-8"
-    >
-        <NavBar />
 
         <main class="flex flex-col justify-center py-16 sm:py-24">
-            <h1
-                class="mb-6 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-6xl text-balance"
-            >
-                Biolab Escape
-            </h1>
+            <div class="mb-12">
+                <h1 class="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-6xl text-balance mb-4">
+                    Bio Lab Escape: Gamifying Cell Biology
+                </h1>
+                <p class="text-lg text-zinc-300 font-medium">
+                    Full Stack Developer & Researcher | <span class="text-gray-500 italic">Team: Rojas Oscar, Jeria Sebastián, Robles Benjamín</span>
+                </p>
+                <div class="flex gap-2 mt-4">
+                    {["EdTech", "Serious Games", "Game Design", "UX Research", "Gamification"].map(tag => (
+                        <span class="px-3 py-1 bg-zinc-800 text-zinc-300 rounded-full text-sm font-semibold">{tag}</span>
+                    ))}
+                </div>
+            </div>
 
-            {
-                /* Contenedor Principal: Grid de 1 col en móvil, 2 cols en desktop */
-            }
-            <div
-                class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
-            >
-                {/* Columna Izquierda: Textos y Equipo */}
-                <div
-                    class="leading-relaxed text-gray-700 text-pretty space-y-8"
-                >
-                    <p>
-                        Bio Lab Escape es un juego de carrera continua similar
-                        al del dinosaurio de Google, donde controlas a un
-                        científico que intenta escapar de un laboratorio.
-                    </p>
-                    <p>
-                        Tu misión es esquivar obstáculos que restan vidas y
-                        recolectar 5 objetos específicos para avanzar de nivel.
-                        La mecánica combina habilidad y conocimientos: para
-                        conseguir los objetos, debes responder preguntas de
-                        selección múltiple identificando afirmaciones verdaderas
-                        o falsas mediante iconos de tubos de ensayo.
-                    </p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                <div class="lg:col-span-2 space-y-12 leading-relaxed text-zinc-300 text-pretty">
+                    
+                    <section>
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-4">📖 Project Overview</h2>
+                        <p>
+                            Traditional study methods often fail to engage students, leading to poor retention of complex scientific concepts. <strong>Bio Lab Escape</strong> is an educational endless-runner game designed to tackle this by gamifying the review process for university-level Cell Biology.
+                        </p>
+                        <p class="mt-4">
+                            Built for students in the <em>BIO 1220-02</em> course, the game reinforces key learning objectives—specifically genetic material organization, mitosis, and meiosis—by blending fast-paced platforming mechanics with targeted knowledge checks.
+                        </p>
+                    </section>
 
-                    <div class="border-l-4 border-orange-200 pl-4">
-                        <h3 class="font-semibold text-gray-900">
-                            Equipo de Desarrollo:
-                        </h3>
-                        <ul
-                            class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1"
-                        >
-                            {
-                                developers.map((dev) => (
-                                    <li class="text-gray-600 text-base">
-                                        {dev}
-                                    </li>
-                                ))
-                            }
+                    <section>
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-4">🎯 The Challenge</h2>
+                        <p>
+                            How do we motivate students to actively review dense biological processes (like chromosomal compactation and phases of cell division) in a way that feels like a break from studying, rather than a chore?
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-4">🛠️ The Solution & Key Features</h2>
+                        <p>We developed a web-based game reminiscent of the Chrome Dinosaur game, but layered with deep educational design:</p>
+                        <ul class="list-disc ml-6 mt-4 space-y-2">
+                            <li><strong>Endless Runner Mechanics:</strong> Players automatically run, jump over obstacles (viruses, biohazard barrels), and collect laboratory items (microscopes, lab coats, goggles).</li>
+                            <li><strong>Knowledge Gates:</strong> To keep a collected item and progress, players must answer a biology question correctly.</li>
+                            <li><strong>Anti-Memorization Question Bank:</strong> Questions have 4 true/false statements, each written in 3 isomorphic forms (Forms A, B, C). This ensures students learn the <em>concept</em>, not just the right answer.</li>
+                            <li><strong>Meaningful Gamification:</strong> Lives, distance-based scoring, level scaling, and an achievement system (e.g., "Científico loco" for perfect levels, "Fe de ratas" for making mistakes) to drive engagement.</li>
                         </ul>
-                    </div>
+                    </section>
 
-                    <div class="mt-10 flex gap-4">
-                        <a
-                            href="https://www.krr.cl/biolab-escape"
-                            class="inline-flex items-center justify-center rounded-xl bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-600/20 transition-all hover:bg-orange-700 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-                        >
-                            Ir al juego
-                            <svg
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                class="ml-2 h-4 w-4"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                    </div>
+                    <section>
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-4">🧠 Deep Dive: Game & Instructional Design</h2>
+                        <p>A core part of the design was aligning the gameplay loop with pedagogical goals:</p>
+                        <ol class="list-decimal ml-6 mt-4 space-y-4">
+                            <li><strong>3 Levels, 3 Objectives:</strong> Level 1 focuses on DNA organization; Level 2 on Mitosis; Level 3 on Meiosis. Players must unlock levels sequentially.</li>
+                            <li><strong>Immediate Elaborated Feedback:</strong> If a player gets a question wrong, they don't just see a red "X". They receive specific explanations for <em>each</em> of the 4 statements, correcting misconceptions on the spot.</li>
+                            <li><strong>Telemetry & Data Tracking:</strong> We built a robust JSON logging system that tracks more than just right/wrong answers. It records the exact time taken to answer, the specific sub-concepts failed, and user emails for longitudinal tracking.</li>
+                        </ol>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-4">📊 UX Research & Methodology</h2>
+                        <p>To validate the game's effectiveness, we conducted a rigorous pilot study with <strong>40 participants</strong> (16 current students, 24 alumni). The methodology included:</p>
+                        <ul class="list-disc ml-6 mt-4 space-y-2">
+                            <li><strong>Pre-test / Post-test Knowledge Surveys:</strong> Using unique "Form D" questions not found in the game to test actual learning transfer.</li>
+                            <li><strong>Perception Questionnaires:</strong> Based on the <em>Intrinsic Motivation Inventory (IMI)</em> and <em>Hedonic-Motivation System Adoption Model (HMSAM)</em>, measuring 5 dimensions: Perceived Competence, Effort/Importance, Value/Utility, Interest/Enjoyment, and Perceived Ease of Use.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-4">📈 Key Results</h2>
+                        <p>The data showed that Bio Lab Escape successfully reinforced prior learning:</p>
+                        <ul class="list-disc ml-6 mt-4 space-y-2">
+                            <li><strong>+7% Overall Knowledge Increase:</strong> Average accuracy rates rose from 0.71 (pre-test) to 0.78 (post-test).</li>
+                            <li><strong>Targeted Successes:</strong> 
+                                <ul class="list-circle ml-6 mt-2">
+                                    <li><em>Genetic Material (OA-1):</em> +13% accuracy increase.</li>
+                                    <li><em>Meiosis (OA-3):</em> +11% accuracy increase.</li>
+                                </ul>
+                            </li>
+                            <li><strong>High Usability:</strong> "Perceived Ease of Use" saw a positive shift (+0.38 points), with users praising the simple "press space to jump" mechanics.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-4">🧩 Challenges & Lessons Learned</h2>
+                        <div class="space-y-4">
+                            <p><strong>1. The "Mitosis Anomaly":</strong> OA-2 (Mitosis) actually saw a -6% drop in accuracy. We hypothesized that the questions may have been too confusing or conceptually overlapping with Meiosis, highlighting the need for clearer wording.</p>
+                            <p><strong>2. Repetitiveness:</strong> While users found the game "friendly," advanced players found the endless runner loop monotonous. As one user noted: <em>"The obstacles always come at the same time, which makes it monotonous."</em></p>
+                            <p><strong>3. UI/UX Friction:</strong> Several users reported confusion during the quiz phase due to clashing visual feedback (e.g., the background turning green for a correct answer, but the specific text option highlighted in red).</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-4">🚀 Future Iterations</h2>
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li><strong>Dynamic Difficulty:</strong> Gradually increasing game speed and varied obstacles.</li>
+                            <li><strong>Progressive Questioning:</strong> Starting levels with easier, foundational questions.</li>
+                            <li><strong>Audio & Polish:</strong> Adding background music and sound effects to increase the "Hedonic" (fun) value.</li>
+                            <li><strong>UI Overhaul:</strong> Fixing the color-coding discrepancy in the quiz feedback system.</li>
+                        </ul>
+                    </section>
                 </div>
 
-                <div class="relative group lg:mt-16">
-                    <div
-                        class="from-orange-400 to-orange-600 "
-                    >
+                <aside class="space-y-8 sticky top-24">
+                    <div class="bg-zinc-900/50 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-xl shadow-orange-900/5">
                         <img
                             src={biolabEscapeScreenshot.src}
                             alt="Biolab Escape Preview"
-                            class="h-48 rounded-2xl  "
+                            class="w-full rounded-xl shadow-md mb-6"
                         />
+                        <div class="flex flex-col gap-4">
+                            <a
+                                href="https://www.krr.cl/biolab-escape"
+                                class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-700 hover:-translate-y-0.5"
+                            >
+                                Play Game
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-2 h-4 w-4">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <a
+                                href="#"
+                                class="inline-flex items-center justify-center rounded-xl bg-zinc-800 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-zinc-700 hover:-translate-y-0.5"
+                            >
+                                Read Academic Report
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="mt-16 border-t border-gray-200/60 pt-8">
-                <h2
-                    class="text-sm font-semibold uppercase tracking-wider text-gray-500"
-                >
-                    Tecnologías aplicadas
-                </h2>
+                    <div class="border-l-4 border-orange-200 pl-4 py-2">
+                        <h3 class="font-semibold text-zinc-100 mb-2">Development Team:</h3>
+                        <ul class="space-y-1">
+                            {developers.map((dev) => (
+                                <li class="text-zinc-300 text-sm">{dev}</li>
+                            ))}
+                        </ul>
+                    </div>
 
-                <div
-                    class="mt-6 flex flex-wrap items-center gap-8 opacity-75 grayscale transition-all duration-500 hover:grayscale-0 hover:opacity-100"
-                >
-                    {
-                        techStack.map((tech) => (
-                            <img
-                                src={tech.src}
-                                alt={tech.name}
-                                class={`${tech.class} w-auto object-contain`}
-                                loading="lazy"
-                            />
-                        ))
-                    }
-                </div>
+                    <div class="pt-8 border-t border-gray-200/60">
+                        <h2 class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-4">
+                            Tech Stack
+                        </h2>
+                        <div class="flex flex-wrap items-center gap-6">
+                            {techStack.map((tech) => (
+                                <div class="group relative">
+                                    <img
+                                        src={tech.src}
+                                        alt={tech.name}
+                                        class={`${tech.class} w-auto object-contain grayscale transition-all hover:grayscale-0`}
+                                        loading="lazy"
+                                    />
+                                    <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        {tech.name}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </aside>
             </div>
         </main>
-    </div>
 </Layout>

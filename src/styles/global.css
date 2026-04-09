@@ -1,3 +1,9 @@
 @import "tailwindcss";
 
+a {
+  @apply text-blue-400 hover:text-pink-400 hover:underline;
+}
+
+
+
 

@@ -1,37 +1,22 @@
-<nav id="navbar_container">
-    <h1><a href="/">krr</a></h1>
-    <a href="/zen">zen</a>
+---
+const { pathname } = Astro.url;
+const isHome = pathname === "/" || pathname === "/index.html";
+---
+
+<nav class="mb-12 mt-4">
+  <div class="flex items-baseline justify-between border-b border-zinc-700 pb-1 mb-2">
+    <h1 class="text-zinc-100 text-2xl font-bold">
+      <a href="/" class="hover:text-pink-400 no-underline transition-colors">krr.cl</a>
+    </h1>
+    <div class="flex gap-4 text-sm font-bold uppercase tracking-widest">
+        <a href="/zen" class="text-zinc-400 hover:text-pink-400 no-underline transition-colors">zen</a>
+        <a href="https://status.krr.cl/status/krr-cl" class="text-zinc-400 hover:text-pink-400 no-underline transition-colors">status</a>
+        <a href="#projects" class="text-zinc-400 hover:text-pink-400 no-underline transition-colors">Projects</a>
+    </div>
+  </div>
+  {isHome && (
+    <p class="text-zinc-400 italic text-sm sm:text-base">
+      Hosting privacy, code, and infrastructure from Viña del Mar, Chile.
+    </p>
+  )}
 </nav>
-<style>
-h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--text-color);
-    margin: 0;
-}
-
-#navbar_container {
-  font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", Nimbus Sans, Arial, sans-serif;
-
-  margin: auto;
-  padding-top: 2rem;
-  padding-bottom: 1.5rem;
-  /* padding-left: 3.5rem; */
-  /* padding-right: 3.5rem; */
-
-  gap: 2rem;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-  max-width: 1280px;
-  width: 100%;
-
-}
-a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: bolder;
-}
-</style>

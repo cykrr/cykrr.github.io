@@ -12,8 +12,31 @@ import "@/styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>krr.cl</title>
 	</head>
-	<body>
+	<body class="bg-[#111111] text-[#eeeeee] font-mono max-w-3xl mx-auto p-4 sm:p-8 selection:bg-pink-500/30 selection:text-pink-200 antialiased">
+		<NavBar />
 		<slot />
+        <div class="badges mt-16 pt-8 border-t border-zinc-800 flex flex-wrap gap-2">
+          <a href="https://astro.build">
+            <img src="/public/img/badges/astro.webp" alt="Built with Astro" title="Astro">
+          </a>
+          <a href="https://archlinux.org">
+            <img src="/public/img/badges/archlinux.png" alt="archlinux btw" title="ArchLinux btw">
+          </a>
+          <a href="https://ubuntu.org">
+            <img src="https://cyber.dabamos.de/88x31/ubuntu-88x31.gif" alt="">
+          </a>
+          <a href="https://neovim.org">
+            <img src="https://seirdy.one/p/b/neovim.1579028659.png" alt="NeoVIM ftw" title="nvim ftw">
+          </a>
+          <a href="https://anilist.co/anime/339/serial-experiments-lain">
+            <img src="https://seirdy.one/p/b/lain.2347988494.png" alt="I never finished Lain.." title="I never finished Lain...">
+          </a>
+          <a href="https://noscript.net/">
+            <img src="https://www.88x31.nl/gifs/js.jpg" alt="Astro uses javascript.. Sorry about that." title="Astro uses javascript..">
+          </a>
+          <a href="https://yesterweb.org/no-to-web3/">
+            <img src="https://seirdy.one/p/b/keep.4031781130.webp" alt="Keep the web small" title="Keep the web small">
+          </a>
+        </div>
 	</body>
 </html>
-

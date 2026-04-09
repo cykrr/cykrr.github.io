@@ -1,0 +1,24 @@
+---
+import background from "../assets/background.svg";
+---
+<img id="background" src={background.src} alt="" fetchpriority="high" />
+<style>
+  #background {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(100px);
+    overflow: hidden;
+    clip-path: inset(0); /* prevents the blur from overflowing */
+  }
+
+
+  #background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
