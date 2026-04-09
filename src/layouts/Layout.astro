@@ -1,16 +1,21 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { defaultLang } from "../i18n/ui";
 import NavBar from "@/components/NavBar.astro";
 import "@/styles/global.css";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>krr.cl</title>
+		<title>{t('site.title')}</title>
 	</head>
 	<body class="bg-[#111111] text-[#eeeeee] font-mono max-w-3xl mx-auto p-4 sm:p-8 selection:bg-pink-500/30 selection:text-pink-200 antialiased">
 		<NavBar />

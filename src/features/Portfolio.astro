@@ -1,35 +1,39 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
 // src/components/features/portfolio.astro
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="mb-8">
   <h2 class="text-zinc-100 text-xl font-bold border-b border-zinc-700 pb-1 mb-4 mt-8">
-    Infrastructure & Services
+    {t('portfolio.infra.title')}
   </h2>
   <p class="mb-4 text-zinc-300 leading-relaxed">
-    Most of my heavy-lifting is done on my homelab (a mix of a Raspberry Pi 5 and WSL) sitting in my house. 
-    Below are the services I expose to the web.
+    {t('portfolio.infra.description')}
   </p>
   
   <div class="overflow-x-auto">
     <table class="w-full border-collapse mt-4 text-sm sm:text-base text-zinc-300">
       <thead>
         <tr>
-          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">Service</th>
-          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">URL</th>
-          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">Notes</th>
+          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">{t('portfolio.table.service')}</th>
+          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">{t('portfolio.table.url')}</th>
+          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">{t('portfolio.table.notes')}</th>
         </tr>
       </thead>
       <tbody class="align-top">
         <tr class="hover:bg-zinc-800/30 transition-colors">
           <td class="border border-zinc-700 p-2.5 whitespace-nowrap">Voz-CL</td>
           <td class="border border-zinc-700 p-2.5"><a href="https://voz-cl.krr.cl">voz-cl.krr.cl</a></td>
-          <td class="border border-zinc-700 p-2.5">Anonymous voice recollector. I am crowdsourcing audio to train a custom Wav2Vec2/Whisper ASR model for Chilean Spanish for my thesis.</td>
+          <td class="border border-zinc-700 p-2.5">{t('portfolio.table.vozcl.notes')}</td>
         </tr>
         <tr class="hover:bg-zinc-800/30 transition-colors">
           <td class="border border-zinc-700 p-2.5 whitespace-nowrap">Biolab Escape</td>
           <td class="border border-zinc-700 p-2.5"><a href="https://krr.cl/biolab-escape">krr.cl/biolab-escape</a></td>
-          <td class="border border-zinc-700 p-2.5">A cellular biology game I developed at uni with some friends.</td>
+          <td class="border border-zinc-700 p-2.5">{t('portfolio.table.biolab.notes')}</td>
         </tr>
       </tbody>
     </table>
@@ -38,33 +42,33 @@
 
 <section class="mb-8">
   <h2 id="projects" class="text-zinc-100 text-xl font-bold border-b border-zinc-700 pb-1 mb-4 mt-8">
-    Software & Projects
+    {t('portfolio.software.title')}
   </h2>
   <p class="mb-4 text-zinc-300 leading-relaxed">
-    I build things, mostly to avoid using bloated corporate alternatives. Here are some active and past projects:
+    {t('portfolio.software.description')}
   </p>
   <ul class="list-square flex flex-col gap-5 text-zinc-300 leading-relaxed marker:text-zinc-500 pl-4">
-    <li><strong class="text-zinc-100 font-semibold">Chilean Spanish ASR:</strong> Fine-tuning Wav2Vec2 acoustic models for my thesis. Dealing with local dialects is a nightmare, hence the <code class="bg-zinc-800 px-1.5 py-0.5 rounded text-sm font-mono text-pink-300">voz-cl</code> collector above.</li>
-    <li><strong class="text-zinc-100 font-semibold">C/C++ Systems:</strong> Custom HTTP servers and a 3D visualizer built from scratch.</li>
-    <li><strong class="text-zinc-100 font-semibold">Freelance & SaaS:</strong> Built the inventory management system for <a href="https://www.ilustraverde.cl">Ilustraverde</a> (Flutter/Supabase).</li>
-    <li><strong class="text-zinc-100 font-semibold">PlanetariumVR:</strong>
-      A Virtual Reality (VR) educational platform designed to teach users about the solar system. It features interactive drag-and-drop system building, collaborative networking, and detailed information panels for celestial bodies, all tracked using a Wii remote to create an immersive and dynamic learning experience.
-      <a href="/portfolio/planetarium-vr">(View Project)</a>
-      <a href="https://github.com/cykrr/planetariumvr">(GitHub)</a></li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.chilean_asr.title')}</strong> {t('portfolio.software.chilean_asr.description')}</li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.cc_systems.title')}</strong> {t('portfolio.software.cc_systems.description')}</li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.freelance_saas.title')}</strong> {t('portfolio.software.freelance_saas.description')}</li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.planetariumvr.title')}</strong>
+      {t('portfolio.software.planetariumvr.description')}
+      <a href="/portfolio/planetarium-vr">{t('portfolio.software.planetariumvr.view_project')}</a>
+      <a href="https://github.com/cykrr/planetariumvr">{t('portfolio.software.planetariumvr.github')}</a></li>
 
     <li>
-      <strong class="text-zinc-100 font-semibold">Floreria Coral:</strong>
-      Built <a href="https://www.floreriacoral.cl">www.floreriacoral.cl</a>
-    a Wordpress + WooCommerce based E-commerce site.</li>
+      <strong class="text-zinc-100 font-semibold">{t('portfolio.software.floreria_coral.title')}</strong>
+      {t('portfolio.software.floreria_coral.description')}
+    </li>
 
-    <li><strong class="text-zinc-100 font-semibold">Bio Lab Escape:</strong> An educational endless-runner game designed to reinforce Cell Biology concepts through gamification. It focuses on genetic material organization, mitosis, and meiosis, incorporating features like scoring systems, collectible laboratory items, and continuous feedback through interactive quizzes. <a href="/portfolio/biolab-escape">(View Project)</a></li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.biolab_escape.title')}</strong> {t('portfolio.software.biolab_escape.description')} <a href="/portfolio/biolab-escape">{t('portfolio.software.biolab_escape.view_project')}</a></li>
   </ul>
 </section>
 
 <section class="bg-yellow-900/20 border border-yellow-700/50 p-4 my-8 text-yellow-200">
-  <strong class="text-yellow-500 font-bold tracking-wide">WARNING:</strong> The services hosted on the home server may go down if my power cuts out or if I'm messing with Docker containers. Uptime is a suggestion, not a guarantee. For more info. check <a href="https://status.krr.cl/status/krr-cl">Status</a>.
+  <strong class="text-yellow-500 font-bold tracking-wide">{t('portfolio.warning.title')}</strong> {t('portfolio.warning.description')} <a href="https://status.krr.cl/status/krr-cl">{t('portfolio.warning.status')}</a>.
 </section>
 
 <p class="text-zinc-500 text-sm italic">
-  Services ran on homelab: Uptime Kuma (RPI 5)
+  {t('portfolio.footer.text')}
 </p>

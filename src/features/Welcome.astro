@@ -1,17 +1,20 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import Portfolio from './Portfolio.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="mb-8">
   <h2 class="text-zinc-100 text-xl font-bold border-b border-zinc-700 pb-1 mb-4">
-    > whoami
+    {t('welcome.whoami.title')}
   </h2>
   <p class="mb-4 text-zinc-300 leading-relaxed">
-    Hi, I'm krr. I'm a 6th-year Civil Engineering in Informatics student at PUCV. 
-    I write code.
+    {t('welcome.whoami.description')}
   </p>
   <p class="text-zinc-300">
-    Contact: <a href="mailto:me@krr.cl" class="text-blue-400 hover:text-pink-400 hover:underline transition-colors">me@krr.cl</a>
+    {t('welcome.contact')} <a href="mailto:me@krr.cl" class="text-blue-400 hover:text-pink-400 hover:underline transition-colors">me@krr.cl</a>
   </p>
 </section>
 
