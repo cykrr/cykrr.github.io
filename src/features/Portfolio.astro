@@ -11,8 +11,7 @@ const t = useTranslations(lang);
   <h2 class="text-zinc-100 text-xl font-bold border-b border-zinc-700 pb-1 mb-4 mt-8">
     {t('portfolio.infra.title')}
   </h2>
-  <p class="mb-4 text-zinc-300 leading-relaxed">
-    {t('portfolio.infra.description')}
+  <p class="mb-4 text-zinc-300 leading-relaxed" set:html={t('portfolio.infra.description')}>
   </p>
   
   <div class="overflow-x-auto">
@@ -28,12 +27,12 @@ const t = useTranslations(lang);
         <tr class="hover:bg-zinc-800/30 transition-colors">
           <td class="border border-zinc-700 p-2.5 whitespace-nowrap">Voz-CL</td>
           <td class="border border-zinc-700 p-2.5"><a href="https://voz-cl.krr.cl">voz-cl.krr.cl</a></td>
-          <td class="border border-zinc-700 p-2.5">{t('portfolio.table.vozcl.notes')}</td>
+          <td class="border border-zinc-700 p-2.5" set:html={t('portfolio.table.vozcl.notes')}></td>
         </tr>
         <tr class="hover:bg-zinc-800/30 transition-colors">
           <td class="border border-zinc-700 p-2.5 whitespace-nowrap">Biolab Escape</td>
           <td class="border border-zinc-700 p-2.5"><a href="https://krr.cl/biolab-escape">krr.cl/biolab-escape</a></td>
-          <td class="border border-zinc-700 p-2.5">{t('portfolio.table.biolab.notes')}</td>
+          <td class="border border-zinc-700 p-2.5" set:html={t('portfolio.table.biolab.notes')}></td>
         </tr>
       </tbody>
     </table>
@@ -44,29 +43,28 @@ const t = useTranslations(lang);
   <h2 id="projects" class="text-zinc-100 text-xl font-bold border-b border-zinc-700 pb-1 mb-4 mt-8">
     {t('portfolio.software.title')}
   </h2>
-  <p class="mb-4 text-zinc-300 leading-relaxed">
-    {t('portfolio.software.description')}
+  <p class="mb-4 text-zinc-300 leading-relaxed" set:html={t('portfolio.software.description')}>
   </p>
   <ul class="list-square flex flex-col gap-5 text-zinc-300 leading-relaxed marker:text-zinc-500 pl-4">
-    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.chilean_asr.title')}</strong> {t('portfolio.software.chilean_asr.description')}</li>
-    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.cc_systems.title')}</strong> {t('portfolio.software.cc_systems.description')}</li>
-    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.freelance_saas.title')}</strong> {t('portfolio.software.freelance_saas.description')}</li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.chilean_asr.title')}</strong> <span set:html={t('portfolio.software.chilean_asr.description')}></span></li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.cc_systems.title')}</strong> <span set:html={t('portfolio.software.cc_systems.description')}></span></li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.freelance_saas.title')}</strong> <span set:html={t('portfolio.software.freelance_saas.description')}></span></li>
     <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.planetariumvr.title')}</strong>
-      {t('portfolio.software.planetariumvr.description')}
+      <span set:html={t('portfolio.software.planetariumvr.description')}></span>
       <a href="/portfolio/planetarium-vr">{t('portfolio.software.planetariumvr.view_project')}</a>
       <a href="https://github.com/cykrr/planetariumvr">{t('portfolio.software.planetariumvr.github')}</a></li>
 
     <li>
       <strong class="text-zinc-100 font-semibold">{t('portfolio.software.floreria_coral.title')}</strong>
-      {t('portfolio.software.floreria_coral.description')}
+      <span set:html={t('portfolio.software.floreria_coral.description')}></span>
     </li>
 
-    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.biolab_escape.title')}</strong> {t('portfolio.software.biolab_escape.description')} <a href="/portfolio/biolab-escape">{t('portfolio.software.biolab_escape.view_project')}</a></li>
+    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.biolab_escape.title')}</strong> <span set:html={t('portfolio.software.biolab_escape.description')}></span> <a href="/portfolio/biolab-escape">{t('portfolio.software.biolab_escape.view_project')}</a></li>
   </ul>
 </section>
 
 <section class="bg-yellow-900/20 border border-yellow-700/50 p-4 my-8 text-yellow-200">
-  <strong class="text-yellow-500 font-bold tracking-wide">{t('portfolio.warning.title')}</strong> {t('portfolio.warning.description')} <a href="https://status.krr.cl/status/krr-cl">{t('portfolio.warning.status')}</a>.
+  <strong class="text-yellow-500 font-bold tracking-wide">{t('portfolio.warning.title')}</strong> <span set:html={t('portfolio.warning.description')}></span> <a href="https://status.krr.cl/status/krr-cl">{t('portfolio.warning.status')}</a>.
 </section>
 
 <p class="text-zinc-500 text-sm italic">

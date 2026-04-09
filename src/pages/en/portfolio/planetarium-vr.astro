@@ -66,8 +66,8 @@ const resources = {
                     <!-- Case study content goes here, adapted from user's input -->
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('planetariumvr.overview.title')}</h2>
-                        <p>{t('planetariumvr.overview.p1')}</p>
-                        <p>{t('planetariumvr.overview.p2')}</p>
+                        <p set:html={t('planetariumvr.overview.p1')}></p>
+                        <p set:html={t('planetariumvr.overview.p2')}></p>
                         
                         <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                             <img src="/img/planetariumvr/planet-earth.png" alt={t('planetariumvr.overview.img1_alt')} class="rounded-xl border border-white/10 shadow-lg" />
@@ -78,10 +78,10 @@ const resources = {
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('planetariumvr.features.title')}</h2>
                         <h3 class="text-lg font-semibold text-zinc-100 mb-2">{t('planetariumvr.features.1.title')}</h3>
-                        <p>{t('planetariumvr.features.1.description')}</p>
+                        <p set:html={t('planetariumvr.features.1.description')}></p>
 
                         <h3 class="text-lg font-semibold text-zinc-100 mb-2">{t('planetariumvr.features.2.title')}</h3>
-                        <p>{t('planetariumvr.features.2.description')}</p>
+                        <p set:html={t('planetariumvr.features.2.description')}></p>
 
                         <div class="my-8">
                             <img src="/img/planetariumvr/point-to-grab.png" alt={t('planetariumvr.features.img3_alt')} class="w-full rounded-xl border border-white/10 shadow-lg" />
@@ -89,7 +89,7 @@ const resources = {
                         </div>
 
                         <h3 class="text-lg font-semibold text-zinc-100 mb-2">{t('planetariumvr.features.3.title')}</h3>
-                        <p>{t('planetariumvr.features.3.description')}</p>
+                        <p set:html={t('planetariumvr.features.3.description')}></p>
 
                         <div class="my-8">
                             <img src="/img/planetariumvr/physical-schema.png" alt={t('planetariumvr.features.img4_alt')} class="w-full rounded-xl bg-white/5 p-4 border border-white/10 shadow-lg" />
@@ -99,7 +99,7 @@ const resources = {
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('planetariumvr.testing.title')}</h2>
-                        <p>{t('planetariumvr.testing.p1')}</p>
+                        <p set:html={t('planetariumvr.testing.p1')}></p>
                         
                         <div class="my-10 bg-zinc-900/40 p-6 rounded-2xl border border-white/10 shadow-inner">
                             <h3 class="text-lg font-semibold text-zinc-100 mb-6 text-center">{t('planetariumvr.testing.questionnaire_title')}</h3>
@@ -144,7 +144,7 @@ const resources = {
                             </div>
                         </div>
 
-                        <p>{t('planetariumvr.testing.p2')}</p>
+                        <p set:html={t('planetariumvr.testing.p2')}></p>
                         <ul class="list-disc ml-6 mt-4 space-y-2">
                             <li><strong>{t('planetariumvr.testing.list.immersion')}</strong> +0.77 (3.62 → 4.39)</li>
                             <li><strong>{t('planetariumvr.testing.list.joy')}</strong> +0.62 (3.96 → 4.58)</li>
@@ -161,36 +161,36 @@ const resources = {
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('planetariumvr.feedback.title')}</h2>
-                        <p>{t('planetariumvr.feedback.p1')}</p>
+                        <p set:html={t('planetariumvr.feedback.p1')}></p>
                         <ul class="list-disc ml-6 mt-4 space-y-2">
-                            <li><em>"{t('planetariumvr.feedback.quote1')}"</em></li>
-                            <li><em>"{t('planetariumvr.feedback.quote2')}"</em></li>
-                            <li><em>"{t('planetariumvr.feedback.quote3')}"</em></li>
+                            <li><em set:html={`"${t('planetariumvr.feedback.quote1')}"`}></em></li>
+                            <li><em set:html={`"${t('planetariumvr.feedback.quote2')}"`}></em></li>
+                            <li><em set:html={`"${t('planetariumvr.feedback.quote3')}"`}></em></li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('planetariumvr.challenges.title')}</h2>
-                        <p>{t('planetariumvr.challenges.p1')}</p>
+                        <p set:html={t('planetariumvr.challenges.p1')}></p>
                         <ol class="list-decimal ml-6 mt-4 space-y-4">
-                            <li><strong>{t('planetariumvr.challenges.1.title')}</strong> {t('planetariumvr.challenges.1.description')}</li>
-                            <li><strong>{t('planetariumvr.challenges.2.title')}</strong> {t('planetariumvr.challenges.2.description')}</li>
+                            <li><strong>{t('planetariumvr.challenges.1.title')}</strong> <span set:html={t('planetariumvr.challenges.1.description')}></span></li>
+                            <li><strong>{t('planetariumvr.challenges.2.title')}</strong> <span set:html={t('planetariumvr.challenges.2.description')}></span></li>
                         </ol>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('planetariumvr.roadmap.title')}</h2>
-                        <p>{t('planetariumvr.roadmap.p1')}</p>
+                        <p set:html={t('planetariumvr.roadmap.p1')}></p>
                         <ul class="list-disc ml-6 mt-4 space-y-2">
-                            <li><strong>{t('planetariumvr.roadmap.1.title')}</strong> {t('planetariumvr.roadmap.1.description')}</li>
-                            <li><strong>{t('planetariumvr.roadmap.2.title')}</strong> {t('planetariumvr.roadmap.2.description')}</li>
-                            <li><strong>{t('planetariumvr.roadmap.3.title')}</strong> {t('planetariumvr.roadmap.3.description')}</li>
+                            <li><strong>{t('planetariumvr.roadmap.1.title')}</strong> <span set:html={t('planetariumvr.roadmap.1.description')}></span></li>
+                            <li><strong>{t('planetariumvr.roadmap.2.title')}</strong> <span set:html={t('planetariumvr.roadmap.2.description')}></span></li>
+                            <li><strong>{t('planetariumvr.roadmap.3.title')}</strong> <span set:html={t('planetariumvr.roadmap.3.description')}></span></li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('planetariumvr.takeaways.title')}</h2>
-                        <p>{t('planetariumvr.takeaways.p1')}</p>
+                        <p set:html={t('planetariumvr.takeaways.p1')}></p>
                     </section>
                 </div>
 

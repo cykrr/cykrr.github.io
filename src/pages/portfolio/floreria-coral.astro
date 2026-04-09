@@ -47,34 +47,32 @@ const resources = {
             <div class="lg:col-span-2 space-y-12 leading-relaxed text-zinc-300 text-pretty">
                 <section>
                     <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('floreria.overview.title')}</h2>
-                    <p>
-                        {t('floreria.overview.p1')}
+                    <p set:html={t('floreria.overview.p1')}>
                     </p>
-                    <p class="mt-4">
-                        {t('floreria.overview.p2')}
+                    <p class="mt-4" set:html={t('floreria.overview.p2')}>
                     </p>
                 </section>
 
                 <section>
                     <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('floreria.features.title')}</h2>
                     <h3 class="text-lg font-semibold text-zinc-100 mb-2">{t('floreria.features.1.title')}</h3>
-                    <p>{t('floreria.features.1.description')}</p>
+                    <p set:html={t('floreria.features.1.description')}></p>
 
                     <h3 class="text-lg font-semibold text-zinc-100 mb-2">{t('floreria.features.2.title')}</h3>
-                    <p>{t('floreria.features.2.description')}</p>
+                    <p set:html={t('floreria.features.2.description')}></p>
 
                     <h3 class="text-lg font-semibold text-zinc-100 mb-2">{t('floreria.features.3.title')}</h3>
-                    <p>{t('floreria.features.3.description')}</p>
+                    <p set:html={t('floreria.features.3.description')}></p>
                 </section>
 
                 <section>
                     <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('floreria.challenge.title')}</h2>
-                    <p>{t('floreria.challenge.p1')}</p>
+                    <p set:html={t('floreria.challenge.p1')}></p>
                 </section>
 
                 <section>
                     <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('floreria.takeaways.title')}</h2>
-                    <p>{t('floreria.takeaways.p1')}</p>
+                    <p set:html={t('floreria.takeaways.p1')}></p>
                 </section>
             </div>
 

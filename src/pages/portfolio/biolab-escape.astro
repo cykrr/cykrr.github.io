@@ -62,82 +62,79 @@ const developers = [
                     
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('biolab.overview.title')}</h2>
-                        <p>
-                            {t('biolab.overview.p1')}
+                        <p set:html={t('biolab.overview.p1')}>
                         </p>
-                        <p class="mt-4">
-                            {t('biolab.overview.p2')}
+                        <p class="mt-4" set:html={t('biolab.overview.p2')}>
                         </p>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('biolab.challenge.title')}</h2>
-                        <p>
-                            {t('biolab.challenge.p1')}
+                        <p set:html={t('biolab.challenge.p1')}>
                         </p>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('biolab.solution.title')}</h2>
-                        <p>{t('biolab.solution.p1')}</p>
+                        <p set:html={t('biolab.solution.p1')}></p>
                         <ul class="list-disc ml-6 mt-4 space-y-2">
-                            <li><strong>{t('biolab.solution.list.1.title')}</strong> {t('biolab.solution.list.1.description')}</li>
-                            <li><strong>{t('biolab.solution.list.2.title')}</strong> {t('biolab.solution.list.2.description')}</li>
-                            <li><strong>{t('biolab.solution.list.3.title')}</strong> {t('biolab.solution.list.3.description')}</li>
-                            <li><strong>{t('biolab.solution.list.4.title')}</strong> {t('biolab.solution.list.4.description')}</li>
+                            <li><strong>{t('biolab.solution.list.1.title')}</strong> <span set:html={t('biolab.solution.list.1.description')}></span></li>
+                            <li><strong>{t('biolab.solution.list.2.title')}</strong> <span set:html={t('biolab.solution.list.2.description')}></span></li>
+                            <li><strong>{t('biolab.solution.list.3.title')}</strong> <span set:html={t('biolab.solution.list.3.description')}></span></li>
+                            <li><strong>{t('biolab.solution.list.4.title')}</strong> <span set:html={t('biolab.solution.list.4.description')}></span></li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('biolab.deep_dive.title')}</h2>
-                        <p>{t('biolab.deep_dive.p1')}</p>
+                        <p set:html={t('biolab.deep_dive.p1')}></p>
                         <ol class="list-decimal ml-6 mt-4 space-y-4">
-                            <li><strong>{t('biolab.deep_dive.list.1.title')}</strong> {t('biolab.deep_dive.list.1.description')}</li>
-                            <li><strong>{t('biolab.deep_dive.list.2.title')}</strong> {t('biolab.deep_dive.list.2.description')}</li>
-                            <li><strong>{t('biolab.deep_dive.list.3.title')}</strong> {t('biolab.deep_dive.list.3.description')}</li>
+                            <li><strong>{t('biolab.deep_dive.list.1.title')}</strong> <span set:html={t('biolab.deep_dive.list.1.description')}></span></li>
+                            <li><strong>{t('biolab.deep_dive.list.2.title')}</strong> <span set:html={t('biolab.deep_dive.list.2.description')}></span></li>
+                            <li><strong>{t('biolab.deep_dive.list.3.title')}</strong> <span set:html={t('biolab.deep_dive.list.3.description')}></span></li>
                         </ol>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('biolab.ux_research.title')}</h2>
-                        <p>{t('biolab.ux_research.p1')}</p>
+                        <p set:html={t('biolab.ux_research.p1')}></p>
                         <ul class="list-disc ml-6 mt-4 space-y-2">
-                            <li><strong>{t('biolab.ux_research.list.1.title')}</strong> {t('biolab.ux_research.list.1.description')}</li>
-                            <li><strong>{t('biolab.ux_research.list.2.title')}</strong> {t('biolab.ux_research.list.2.description')}</li>
+                            <li><strong>{t('biolab.ux_research.list.1.title')}</strong> <span set:html={t('biolab.ux_research.list.1.description')}></span></li>
+                            <li><strong>{t('biolab.ux_research.list.2.title')}</strong> <span set:html={t('biolab.ux_research.list.2.description')}></span></li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('biolab.key_results.title')}</h2>
-                        <p>{t('biolab.key_results.p1')}</p>
+                        <p set:html={t('biolab.key_results.p1')}></p>
                         <ul class="list-disc ml-6 mt-4 space-y-2">
-                            <li><strong>{t('biolab.key_results.list.1.title')}</strong> {t('biolab.key_results.list.1.description')}</li>
+                            <li><strong>{t('biolab.key_results.list.1.title')}</strong> <span set:html={t('biolab.key_results.list.1.description')}></span></li>
                             <li><strong>{t('biolab.key_results.list.2.title')}</strong> 
                                 <ul class="list-circle ml-6 mt-2">
-                                    <li><em>{t('biolab.key_results.list.2.sublist.1.title')}</em> {t('biolab.key_results.list.2.sublist.1.description')}</li>
-                                    <li><em>{t('biolab.key_results.list.2.sublist.2.title')}</em> {t('biolab.key_results.list.2.sublist.2.description')}</li>
+                                    <li><em set:html={t('biolab.key_results.list.2.sublist.1.title')}></em> <span set:html={t('biolab.key_results.list.2.sublist.1.description')}></span></li>
+                                    <li><em set:html={t('biolab.key_results.list.2.sublist.2.title')}></em> <span set:html={t('biolab.key_results.list.2.sublist.2.description')}></span></li>
                                 </ul>
                             </li>
-                            <li><strong>{t('biolab.key_results.list.3.title')}</strong> {t('biolab.key_results.list.3.description')}</li>
+                            <li><strong>{t('biolab.key_results.list.3.title')}</strong> <span set:html={t('biolab.key_results.list.3.description')}></span></li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('biolab.challenges.title')}</h2>
                         <div class="space-y-4">
-                            <p><strong>{t('biolab.challenges.p1.title')}</strong> {t('biolab.challenges.p1.description')}</p>
-                            <p><strong>{t('biolab.challenges.p2.title')}</strong> {t('biolab.challenges.p2.description')}</p>
-                            <p><strong>{t('biolab.challenges.p3.title')}</strong> {t('biolab.challenges.p3.description')}</p>
+                            <p><strong>{t('biolab.challenges.p1.title')}</strong> <span set:html={t('biolab.challenges.p1.description')}></span></p>
+                            <p><strong>{t('biolab.challenges.p2.title')}</strong> <span set:html={t('biolab.challenges.p2.description')}></span></p>
+                            <p><strong>{t('biolab.challenges.p3.title')}</strong> <span set:html={t('biolab.challenges.p3.description')}></span></p>
                         </div>
                     </section>
 
                     <section>
                         <h2 class="text-2xl font-bold text-zinc-100 mb-4">{t('biolab.future_iterations.title')}</h2>
                         <ul class="list-disc ml-6 mt-2 space-y-2">
-                            <li><strong>{t('biolab.future_iterations.list.1.title')}</strong> {t('biolab.future_iterations.list.1.description')}</li>
-                            <li><strong>{t('biolab.future_iterations.list.2.title')}</strong> {t('biolab.future_iterations.list.2.description')}</li>
-                            <li><strong>{t('biolab.future_iterations.list.3.title')}</strong> {t('biolab.future_iterations.list.3.description')}</li>
-                            <li><strong>{t('biolab.future_iterations.list.4.title')}</strong> {t('biolab.future_iterations.list.4.description')}</li>
+                            <li><strong>{t('biolab.future_iterations.list.1.title')}</strong> <span set:html={t('biolab.future_iterations.list.1.description')}></span></li>
+                            <li><strong>{t('biolab.future_iterations.list.2.title')}</strong> <span set:html={t('biolab.future_iterations.list.2.description')}></span></li>
+                            <li><strong>{t('biolab.future_iterations.list.3.title')}</strong> <span set:html={t('biolab.future_iterations.list.3.description')}></span></li>
+                            <li><strong>{t('biolab.future_iterations.list.4.title')}</strong> <span set:html={t('biolab.future_iterations.list.4.description')}></span></li>
                         </ul>
                     </section>
                 </div>
