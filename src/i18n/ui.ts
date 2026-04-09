@@ -15,7 +15,7 @@ export const ui = {
     'portfolio.websites': 'Páginas web',
     'portfolio.games': 'Videojuegos educativos',
     'welcome.whoami.title': '> whoami',
-    'welcome.whoami.description': 'Hola, soy krr. Soy un estudiante de 6to año de Ingeniería Civil en Informática en la PUCV. Escribo código.',
+    'welcome.whoami.description': 'Hola, soy krr. Actualmente en mi 6to año de Ingeniería Civil en Informática en la PUCV. Me gusta programar.',
     'welcome.contact': 'Contacto:',
     'nav.status': 'estado',
     'nav.projects': 'Proyectos',
