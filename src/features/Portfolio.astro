@@ -49,17 +49,27 @@ const t = useTranslations(lang);
     <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.chilean_asr.title')}</strong> <span set:html={t('portfolio.software.chilean_asr.description')}></span></li>
     <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.cc_systems.title')}</strong> <span set:html={t('portfolio.software.cc_systems.description')}></span></li>
     <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.freelance_saas.title')}</strong> <span set:html={t('portfolio.software.freelance_saas.description')}></span></li>
-    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.planetariumvr.title')}</strong>
+    <li>
+      <a href="/portfolio/planetarium-vr" class="hover:text-pink-400 transition-colors">
+        <strong class="text-zinc-100 font-semibold hover:text-inherit">{t('portfolio.software.planetariumvr.title')}</strong>
+      </a>
       <span set:html={t('portfolio.software.planetariumvr.description')}></span>
-      <a href="/portfolio/planetarium-vr">{t('portfolio.software.planetariumvr.view_project')}</a>
-      <a href="https://github.com/cykrr/planetariumvr">{t('portfolio.software.planetariumvr.github')}</a></li>
+      <a href="https://github.com/cykrr/planetariumvr" class="text-sm ml-1 text-zinc-500 hover:text-pink-400 transition-colors">{t('portfolio.software.planetariumvr.github')}</a>
+    </li>
 
     <li>
-      <strong class="text-zinc-100 font-semibold">{t('portfolio.software.floreria_coral.title')}</strong>
+      <a href="/portfolio/floreria-coral" class="hover:text-pink-400 transition-colors">
+        <strong class="text-zinc-100 font-semibold hover:text-inherit">{t('portfolio.software.floreria_coral.title')}</strong>
+      </a>
       <span set:html={t('portfolio.software.floreria_coral.description')}></span>
     </li>
 
-    <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.biolab_escape.title')}</strong> <span set:html={t('portfolio.software.biolab_escape.description')}></span> <a href="/portfolio/biolab-escape">{t('portfolio.software.biolab_escape.view_project')}</a></li>
+    <li>
+      <a href="/portfolio/biolab-escape" class="hover:text-pink-400 transition-colors">
+        <strong class="text-zinc-100 font-semibold hover:text-inherit">{t('portfolio.software.biolab_escape.title')}</strong>
+      </a>
+      <span set:html={t('portfolio.software.biolab_escape.description')}></span>
+    </li>
   </ul>
 </section>
 
