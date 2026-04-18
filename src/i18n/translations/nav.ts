@@ -4,6 +4,7 @@ export const navTranslations = {
     'nav.zen': 'zen',
     'nav.status': 'estado',
     'nav.projects': 'Proyectos',
+    'nav.blog': 'Blog',
     'site.title': 'krr.cl',
     'github.button.text': 'krrnao',
   },

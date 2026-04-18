@@ -1,0 +1,3 @@
+[submodule "src/pages/graph"]
+	path = src/pages/graph
+	url = https://github.com/cykrr/js-graph-dist.git

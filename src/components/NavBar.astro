@@ -19,6 +19,7 @@ const t = useTranslations(lang);
           <a href={lang === defaultLang ? "/zen" : `/${lang}/zen`} class="text-zinc-400 hover:text-pink-400 no-underline transition-colors">{t('nav.zen')}</a>
           <a href="https://status.krr.cl/status/krr-cl" class="text-zinc-400 hover:text-pink-400 no-underline transition-colors">{t('nav.status')}</a>
           <a href="#projects" class="text-zinc-400 hover:text-pink-400 no-underline transition-colors">{t('nav.projects')}</a>
+          <a href={lang === defaultLang ? "/blog" : `/${lang}/blog`} class="text-zinc-400 hover:text-pink-400 no-underline transition-colors">{t('nav.blog')}</a>
       </div>    </div>
     <!-- Language selector row will go here -->
     <div class="flex justify-end text-sm mb-2">
