@@ -1,6 +1,6 @@
 ---
-layout: @/layouts/Layout.astro
-title: Debugging iOS WidgetKit Extensions for TrollStore (Without Xcode!)
+layout: "@/layouts/Layout.astro"
+title: "Debugging iOS WidgetKit Extensions for TrollStore (Without Xcode!)"
 ---
 
 # Debugging iOS WidgetKit Extensions for TrollStore (Without Xcode!)
