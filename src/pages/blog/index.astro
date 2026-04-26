@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = await Astro.glob('./*.md');
+
+// Sort posts by date (latest first).
+// For now, using a placeholder date if not present in frontmatter.
+// In a real scenario, you'd ensure all blog posts have a date.
+posts.sort((a, b) => {
+  const dateA = new Date(a.frontmatter.date || '2000-01-01');
+  const dateB = new Date(b.frontmatter.date || '2000-01-01');
+  return dateB.getTime() - dateA.getTime();
+});
+---
+
+<Layout title="Blog">
+  <main>
+    <section>
+      <h1>Blog Posts</h1>
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <a href={post.url}>{post.frontmatter.title}</a>
+            {post.frontmatter.date && <p><small>{new Date(post.frontmatter.date).toLocaleDateString()}</small></p>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+</Layout>
