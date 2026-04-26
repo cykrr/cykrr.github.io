@@ -4,6 +4,40 @@ a {
   @apply text-blue-400 hover:text-pink-400 hover:underline;
 }
 
-
-
-
+/* Markdown styling */
+.markdown-body h1 {
+  @apply text-3xl font-bold mt-8 mb-4 text-pink-300;
+}
+.markdown-body h2 {
+  @apply text-2xl font-bold mt-6 mb-3 text-pink-200;
+}
+.markdown-body h3 {
+  @apply text-xl font-bold mt-4 mb-2;
+}
+.markdown-body p {
+  @apply mb-4 leading-relaxed;
+}
+.markdown-body ul {
+  @apply list-disc pl-6 mb-4 space-y-1;
+}
+.markdown-body ol {
+  @apply list-decimal pl-6 mb-4 space-y-1;
+}
+.markdown-body blockquote {
+  @apply border-l-4 border-pink-500 pl-4 italic text-zinc-400 my-4 py-2;
+}
+.markdown-body pre {
+  @apply bg-[#1a1a1a] p-4 rounded-md overflow-x-auto mb-4 border border-zinc-800;
+}
+.markdown-body code {
+  @apply bg-[#2a2a2a] text-pink-300 px-1.5 py-0.5 rounded text-sm;
+}
+.markdown-body pre code {
+  @apply bg-transparent text-[#eeeeee] p-0 text-sm;
+}
+.markdown-body hr {
+  @apply border-zinc-800 my-8;
+}
+.markdown-body strong {
+  @apply font-bold text-white;
+}

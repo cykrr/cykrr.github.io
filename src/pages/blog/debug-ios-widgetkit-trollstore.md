@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/Layout.astro"
+layout: "@/layouts/MarkdownLayout.astro"
 title: Debugging iOS WidgetKit Extensions for TrollStore (Without Xcode!)
 date: 2026-04-25
 description: A detailed guide on debugging iOS WidgetKit extensions for TrollStore without Xcode, covering common issues like missing App Groups, incorrect sandboxing, Info.plist errors, and dynamic linker crashes.
