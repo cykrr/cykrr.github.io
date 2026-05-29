@@ -6,6 +6,19 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
+<section class="mb-8 rounded-xl border border-amber-500/40 bg-amber-500/10 p-4">
+  <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-amber-300">Hackatón Invierno</p>
+  <p class="mb-2 text-zinc-100">
+    Información importante: esta convocatoria es <strong>solo para estudiantes de primero y segundo medio</strong>.
+    La inscripción se realiza únicamente a través del formulario oficial.
+  </p>
+  <p class="text-zinc-300">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScPDkFzcqVwYkmewVbhXi_vlLMITu5D4T4GOfdcIvmEPyNS1w/viewform" target="_blank" rel="noreferrer">Formulario de inscripción</a>
+    ·
+    <a href="https://drive.google.com/file/d/1El61ZITuYhhSd7Iizw3s2msTVPjTlwiT/view?usp=drivesdk" target="_blank" rel="noreferrer">Ver afiche</a>
+  </p>
+</section>
+
 <section class="mb-8">
   <h2 class="text-zinc-100 text-xl font-bold border-b border-zinc-700 pb-1 mb-4">
     {t('welcome.whoami.title')}
