@@ -101,6 +101,9 @@ section:first-of-type .h-section { margin-top: 0; }
 .projects > li { padding: .8rem 0 .8rem 1rem; border-left: 1px solid var(--border); }
 .projects > li:hover { border-left-color: var(--accent-dim); }
 .projects .name { color: var(--text-strong); font-weight: 600; }
+/* Needs the element+class selector: plain `a` loses to `.projects .name`. */
+.projects a.name { color: var(--accent); }
+.projects a.name:hover { color: var(--accent-alt); text-decoration: underline; text-underline-offset: 3px; }
 .projects .blurb { display: block; color: var(--text-dim); font-size: .9rem; margin-top: .15rem; }
 .projects .src { font-size: .8rem; color: var(--text-dim); }
 
