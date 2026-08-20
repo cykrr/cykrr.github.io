@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/starlight": "^0.34.4",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.1.11",

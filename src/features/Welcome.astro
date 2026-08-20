@@ -4,12 +4,32 @@ import Portfolio from './Portfolio.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const doing = ['speech', 'product', 'systems', 'ai'] as const;
 ---
 
 <section>
   <h2 class="h-section">{t('welcome.whoami.title')}</h2>
-  <p>{t('welcome.whoami.description')}</p>
-  <p>{t('welcome.contact')} <a href="mailto:me@krr.cl">me@krr.cl</a></p>
+  <p>{t('welcome.whoami.p1')}</p>
+  <p>{t('welcome.whoami.p2')}</p>
+  <p>{t('welcome.contact')} <a href="mailto:me@krr.cl">me@krr.cl</a> · <a href="https://github.com/cykrr">github.com/cykrr</a></p>
+</section>
+
+<section>
+  <h2 class="h-section">{t('welcome.doing.title')}</h2>
+  <ul class="projects">
+    {doing.map((k) => (
+      <li>
+        <span class="name">{t(`welcome.doing.${k}.title`)}</span>
+        <span class="blurb">{t(`welcome.doing.${k}.description`)}</span>
+      </li>
+    ))}
+  </ul>
 </section>
 
 <Portfolio />
+
+<section>
+  <h2 class="h-section">{t('welcome.outside.title')}</h2>
+  <p>{t('welcome.outside.text')}</p>
+</section>

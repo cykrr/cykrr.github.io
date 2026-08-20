@@ -9,11 +9,41 @@ const services = [
   { name: "Biolab Escape", href: "https://krr.cl/biolab-escape", label: "krr.cl/biolab-escape", notes: t('portfolio.table.biolab.notes') },
 ];
 
-const projects = [
-  { key: 'chilean_asr' }, { key: 'cc_systems' }, { key: 'freelance_saas' },
-  { key: 'planetariumvr', href: '/portfolio/planetarium-vr', src: 'https://github.com/cykrr/planetariumvr' },
-  { key: 'floreria_coral', href: '/portfolio/floreria-coral' },
-  { key: 'biolab_escape', href: '/portfolio/biolab-escape' },
+// `href` links the title; `src` adds a trailing source link. Projects with
+// neither are private or client work and render as plain text.
+const groups = [
+  {
+    heading: 'portfolio.group.current',
+    items: [
+      { key: 'inspector_ia' },
+      { key: 'wincontrol', src: 'https://github.com/cykrr/macro-daemon' },
+    ],
+  },
+  {
+    heading: 'portfolio.group.research',
+    items: [
+      { key: 'chilean_asr' },
+    ],
+  },
+  {
+    heading: 'portfolio.group.oss',
+    items: [
+      { key: 'mdserve', href: 'https://notes.krr.cl/mdserve/', src: 'https://github.com/cykrr/mdserve' },
+      { key: 'kindle_dashboard', src: 'https://github.com/cykrr/kindle-dashboard' },
+      { key: 'graph', src: 'https://github.com/cykrr/graph' },
+      { key: 'krr_ge' },
+      { key: 'cc_systems' },
+    ],
+  },
+  {
+    heading: 'portfolio.group.client',
+    items: [
+      { key: 'freelance_saas' },
+      { key: 'floreria_coral', href: '/portfolio/floreria-coral' },
+      { key: 'planetariumvr', href: '/portfolio/planetarium-vr', src: 'https://github.com/cykrr/planetariumvr' },
+      { key: 'biolab_escape', href: '/portfolio/biolab-escape' },
+    ],
+  },
 ] as const;
 ---
 
@@ -35,17 +65,22 @@ const projects = [
   <h2 id="projects" class="h-section">{t('portfolio.software.title')}</h2>
   <p set:html={t('portfolio.software.description')}></p>
 
-  <ul class="projects">
-    {projects.map((p) => (
-      <li>
-        {p.href
-          ? <a class="name" href={p.href}>{t(`portfolio.software.${p.key}.title`)}</a>
-          : <span class="name">{t(`portfolio.software.${p.key}.title`)}</span>}
-        {p.src && <a class="src" href={p.src}> {t('portfolio.software.planetariumvr.github')}</a>}
-        <span class="blurb" set:html={t(`portfolio.software.${p.key}.description`)}></span>
-      </li>
-    ))}
-  </ul>
+  {groups.map((g) => (
+    <>
+      <h3 class="h-group">{t(g.heading)}</h3>
+      <ul class="projects">
+        {g.items.map((p) => (
+          <li>
+            {'href' in p && p.href
+              ? <a class="name" href={p.href}>{t(`portfolio.software.${p.key}.title`)}</a>
+              : <span class="name">{t(`portfolio.software.${p.key}.title`)}</span>}
+            {'src' in p && p.src && <a class="src" href={p.src}>(GitHub)</a>}
+            <span class="blurb" set:html={t(`portfolio.software.${p.key}.description`)}></span>
+          </li>
+        ))}
+      </ul>
+    </>
+  ))}
 
   <p class="note">
     <b>{t('portfolio.warning.title')}</b>

@@ -97,6 +97,15 @@ section:first-of-type .h-section { margin-top: 0; }
 .svc dd { margin: .15rem 0 0; color: var(--text-dim); font-size: .9rem; }
 
 /* ---------- project list ---------- */
+.h-group {
+  margin: 1.6rem 0 .4rem;
+  color: var(--text-dim);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+.h-group::before { content: "> "; color: var(--accent-dim); }
+
 .projects { list-style: none; margin: 0; padding: 0; }
 .projects > li { padding: .8rem 0 .8rem 1rem; border-left: 1px solid var(--border); }
 .projects > li:hover { border-left-color: var(--accent-dim); }
