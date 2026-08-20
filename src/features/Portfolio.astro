@@ -1,14 +1,12 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
-// src/components/features/portfolio.astro
-
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <section class="mb-8">
-  <h2 class="text-zinc-100 text-xl font-bold border-b border-zinc-700 pb-1 mb-4 mt-8">
+  <h2 class="text-zinc-100 text-xl font-bold pb-1 mb-4 mt-8" style="border-bottom: 2px solid rgba(172, 246, 251, 0.2);">
     {t('portfolio.infra.title')}
   </h2>
   <p class="mb-4 text-zinc-300 leading-relaxed" set:html={t('portfolio.infra.description')}>
@@ -18,21 +16,21 @@ const t = useTranslations(lang);
     <table class="w-full border-collapse mt-4 text-sm sm:text-base text-zinc-300">
       <thead>
         <tr>
-          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">{t('portfolio.table.service')}</th>
-          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">{t('portfolio.table.url')}</th>
-          <th class="border border-zinc-700 p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold">{t('portfolio.table.notes')}</th>
+          <th class="border p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold" style="border-color: rgba(170, 160, 219, 0.25);">{t('portfolio.table.service')}</th>
+          <th class="border p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold" style="border-color: rgba(170, 160, 219, 0.25);">{t('portfolio.table.url')}</th>
+          <th class="border p-2.5 text-left bg-zinc-800/80 text-zinc-100 font-semibold" style="border-color: rgba(170, 160, 219, 0.25);">{t('portfolio.table.notes')}</th>
         </tr>
       </thead>
       <tbody class="align-top">
         <tr class="hover:bg-zinc-800/30 transition-colors">
-          <td class="border border-zinc-700 p-2.5 whitespace-nowrap">Voz-CL</td>
-          <td class="border border-zinc-700 p-2.5"><a href="https://voz-cl.krr.cl">voz-cl.krr.cl</a></td>
-          <td class="border border-zinc-700 p-2.5" set:html={t('portfolio.table.vozcl.notes')}></td>
+          <td class="border p-2.5 whitespace-nowrap" style="border-color: rgba(170, 160, 219, 0.25);">Voz-CL</td>
+          <td class="border p-2.5" style="border-color: rgba(170, 160, 219, 0.25);"><a href="https://voz-cl.krr.cl">voz-cl.krr.cl</a></td>
+          <td class="border p-2.5" style="border-color: rgba(170, 160, 219, 0.25);" set:html={t('portfolio.table.vozcl.notes')}></td>
         </tr>
         <tr class="hover:bg-zinc-800/30 transition-colors">
-          <td class="border border-zinc-700 p-2.5 whitespace-nowrap">Biolab Escape</td>
-          <td class="border border-zinc-700 p-2.5"><a href="https://krr.cl/biolab-escape">krr.cl/biolab-escape</a></td>
-          <td class="border border-zinc-700 p-2.5" set:html={t('portfolio.table.biolab.notes')}></td>
+          <td class="border p-2.5 whitespace-nowrap" style="border-color: rgba(170, 160, 219, 0.25);">Biolab Escape</td>
+          <td class="border p-2.5" style="border-color: rgba(170, 160, 219, 0.25);"><a href="https://krr.cl/biolab-escape">krr.cl/biolab-escape</a></td>
+          <td class="border p-2.5" style="border-color: rgba(170, 160, 219, 0.25);" set:html={t('portfolio.table.biolab.notes')}></td>
         </tr>
       </tbody>
     </table>
@@ -40,7 +38,7 @@ const t = useTranslations(lang);
 </section>
 
 <section class="mb-8">
-  <h2 id="projects" class="text-zinc-100 text-xl font-bold border-b border-zinc-700 pb-1 mb-4 mt-8">
+  <h2 id="projects" class="text-zinc-100 text-xl font-bold pb-1 mb-4 mt-8" style="border-bottom: 2px solid rgba(172, 246, 251, 0.2);">
     {t('portfolio.software.title')}
   </h2>
   <p class="mb-4 text-zinc-300 leading-relaxed" set:html={t('portfolio.software.description')}>
@@ -50,31 +48,35 @@ const t = useTranslations(lang);
     <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.cc_systems.title')}</strong> <span set:html={t('portfolio.software.cc_systems.description')}></span></li>
     <li><strong class="text-zinc-100 font-semibold">{t('portfolio.software.freelance_saas.title')}</strong> <span set:html={t('portfolio.software.freelance_saas.description')}></span></li>
     <li>
-      <a href="/portfolio/planetarium-vr" class="hover:text-pink-400 transition-colors">
-        <strong class="text-zinc-100 font-semibold hover:text-inherit">{t('portfolio.software.planetariumvr.title')}</strong>
+      <a href="/portfolio/planetarium-vr" class="transition-colors">
+        <strong class="text-zinc-100 font-semibold">{t('portfolio.software.planetariumvr.title')}</strong>
       </a>
       <span set:html={t('portfolio.software.planetariumvr.description')}></span>
-      <a href="https://github.com/cykrr/planetariumvr" class="text-sm ml-1 text-zinc-500 hover:text-pink-400 transition-colors">{t('portfolio.software.planetariumvr.github')}</a>
+      <a href="https://github.com/cykrr/planetariumvr" class="text-sm ml-1 text-zinc-500 transition-colors">{t('portfolio.software.planetariumvr.github')}</a>
     </li>
 
     <li>
-      <a href="/portfolio/floreria-coral" class="hover:text-pink-400 transition-colors">
-        <strong class="text-zinc-100 font-semibold hover:text-inherit">{t('portfolio.software.floreria_coral.title')}</strong>
+      <a href="/portfolio/floreria-coral" class="transition-colors">
+        <strong class="text-zinc-100 font-semibold">{t('portfolio.software.floreria_coral.title')}</strong>
       </a>
       <span set:html={t('portfolio.software.floreria_coral.description')}></span>
     </li>
 
     <li>
-      <a href="/portfolio/biolab-escape" class="hover:text-pink-400 transition-colors">
-        <strong class="text-zinc-100 font-semibold hover:text-inherit">{t('portfolio.software.biolab_escape.title')}</strong>
+      <a href="/portfolio/biolab-escape" class="transition-colors">
+        <strong class="text-zinc-100 font-semibold">{t('portfolio.software.biolab_escape.title')}</strong>
       </a>
       <span set:html={t('portfolio.software.biolab_escape.description')}></span>
     </li>
   </ul>
 </section>
 
-<section class="bg-yellow-900/20 border border-yellow-700/50 p-4 my-8 text-yellow-200">
-  <strong class="text-yellow-500 font-bold tracking-wide">{t('portfolio.warning.title')}</strong> <span set:html={t('portfolio.warning.description')}></span> <a href="https://status.krr.cl/status/krr-cl">{t('portfolio.warning.status')}</a>.
+<!-- Warning box — pink from #E56798 + sky cyan #ACF6FB -->
+<section class="rounded-xl p-4 my-8 border relative overflow-hidden" style="border-color: rgba(229, 103, 152, 0.3); background: linear-gradient(135deg, rgba(229, 103, 152, 0.05), rgba(172, 246, 251, 0.03));">
+  <span class="absolute top-1 left-1 text-sm opacity-20">⚡</span>
+  <strong class="tracking-wide" style="color: var(--lum-pink-bright);">{t('portfolio.warning.title')}</strong> 
+  <span class="text-zinc-300" set:html={t('portfolio.warning.description')}></span> 
+  <a href="https://status.krr.cl/">{t('portfolio.warning.status')}</a>.
 </section>
 
 <p class="text-zinc-500 text-sm italic">

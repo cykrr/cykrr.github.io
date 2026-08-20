@@ -10,6 +10,8 @@ export function getLangFromUrl(url: URL) {
 
 export function useTranslations(lang: keyof typeof ui) {
   return function t(key: keyof typeof ui[typeof defaultLang]) {
-    return ui[lang][key] || ui[defaultLang][key];
+    // Fall back to the default locale, then to the key itself: a missing or
+    // misspelled key renders visibly instead of silently collapsing to ''.
+    return ui[lang][key] ?? ui[defaultLang][key] ?? key;
   }
 }

@@ -1,11 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const posts = await Astro.glob('./*.md');
+const posts = Object.values(import.meta.glob('./*.md', { eager: true }));
 
-// Sort posts by date (latest first).
-// For now, using a placeholder date if not present in frontmatter.
-// In a real scenario, you'd ensure all blog posts have a date.
+// Sort posts by date (latest first)
 posts.sort((a, b) => {
   const dateA = new Date(a.frontmatter.date || '2000-01-01');
   const dateB = new Date(b.frontmatter.date || '2000-01-01');
@@ -16,12 +14,18 @@ posts.sort((a, b) => {
 <Layout title="Blog">
   <main>
     <section>
-      <h1>Blog Posts</h1>
-      <ul>
+      <h1 class="text-[var(--lum-sky)] text-2xl font-bold mt-8 mb-6" style="text-shadow: 0 0 20px rgba(172, 246, 251, 0.15);">
+        📝 Blog Posts
+      </h1>
+      <ul class="space-y-4">
         {posts.map((post) => (
-          <li>
-            <a href={post.url}>{post.frontmatter.title}</a>
-            {post.frontmatter.date && <p><small>{new Date(post.frontmatter.date).toLocaleDateString()}</small></p>}
+          <li class="border-l-2 pl-4 py-1 transition-all hover:pl-6" style="border-color: rgba(172, 246, 251, 0.2);">
+            <a href={post.url} class="text-lg no-underline font-semibold transition-colors">
+              {post.frontmatter.title}
+            </a>
+            {post.frontmatter.date && (
+              <p class="text-zinc-500 text-sm mt-1">{new Date(post.frontmatter.date).toLocaleDateString()}</p>
+            )}
           </li>
         ))}
       </ul>
