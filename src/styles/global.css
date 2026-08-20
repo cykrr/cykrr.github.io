@@ -1,154 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 @import "tailwindcss";
 
-/* ============================================
-   Lum Invader / Urusei Yatsura Theme ❤️⚡
-   Palette extracted from Urusei-Yatsura-1.3.jpg
-   (2022 anime rework style, heavily saturated)
-   ============================================ */
+/* ============================================================
+   krr.cl — terminal-clean
+   No webfonts, one accent, flat background. Tweak the tokens
+   below and everything follows.
+   ============================================================ */
 
 :root {
-  /* === Predominant colors from the image === */
-
-  /* 🥇 #1 — Sky cyan (25% of image) — MAIN BG */
-  --lum-sky: #ACF6FB;
-  --lum-sky-dark: #0a1a2e;    /* deep night derivative */
-  --lum-sky-mid: #0f2a3a;     /* transition zone */
-
-  /* 🥈 #2 — Warm peach / skin (15%) */
-  --lum-peach: #F7D1B3;
-  --lum-peach-deep: #F0D2B4;
-
-  /* 🥉 #3 — Gold / Lum's horns (12%) */
-  --lum-gold: #FBEAAA;
-  --lum-gold-deep: #F3E5AD;
-
-  /* 🏅 #4 — Lavender / hair (10%) */
-  --lum-lavender: #DAA8DC;
-  --lum-lavender-light: #D4B4EC;
-
-  /* 🏅 #5 — Periwinkle / shadows */
-  --lum-periwinkle: #AAA0DB;
-  --lum-periwinkle-light: #CDCFF0;
-
-  /* 🏅 #6 — Vibrant pink / outfit accent */
-  --lum-pink: #CF6899;
-  --lum-pink-bright: #E56798;
-
-  /* 🏅 #7 — Deep rose / strong accents */
-  --lum-rose: #DF5177;
-
-  /* 🏅 #8 — Mid cyan / sky details */
-  --lum-cyan: #79D4E8;
-
-  /* Derived functional */
-  --lum-text: #F0F2F2;
-  --lum-muted: #A298B1;
+  --bg:          #0f1115;
+  --bg-soft:     #151822;
+  --border:      #232836;
+  --text:        #c3ccd7;
+  --text-dim:    #7f8a99;
+  --text-strong: #e8eef5;
+  --accent:      #79d4e8;
+  --accent-dim:  #467c8a;
+  --accent-alt:  #e56798;
 }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
 
 body {
-  background: linear-gradient(
-    180deg,
-    #0a1a2e 0%,
-    #0f1424 30%,
-    #0a0a12 100%
-  );
-  color: var(--lum-text);
+  margin-inline: auto;
+  max-width: 47rem;
+  padding: 2.5rem 1.5rem 4rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, "JetBrains Mono", "Fira Code", SFMono-Regular,
+               Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Retro heading font - Press Start 2P */
-h1, h2, h3, h4 {
-  font-family: 'Press Start 2P', monospace;
-  letter-spacing: 0.02em;
+@media (max-width: 640px) {
+  body { font-size: 14px; padding: 1.75rem 1.1rem 3rem; }
 }
 
-/* Body font - VT323 for that retro terminal feel */
-.font-mono, .markdown-body, p:not([class]), .text-sm:not(a) {
-  font-family: 'VT323', monospace;
-  font-size: 1.15rem;
-}
+p { margin: 0 0 1rem; }
+strong { color: var(--text-strong); font-weight: 600; }
 
-/* ===== LINKS — sky cyan → pink ===== */
-a {
-  color: var(--lum-sky);
-  transition: all 0.2s ease;
-}
-a:hover {
-  color: var(--lum-pink-bright);
-  text-shadow: 0 0 8px rgba(229, 103, 152, 0.5);
-}
-a:active {
-  color: var(--lum-cyan);
-}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-alt); text-decoration: underline; text-underline-offset: 3px; }
 
-/* ===== SELECTION ===== */
-::selection {
-  background: rgba(207, 104, 153, 0.35);
-  color: var(--lum-text);
+/* ---------- masthead ---------- */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid var(--border);
 }
+.brand { font-size: 1.15rem; font-weight: 700; color: var(--text-strong); letter-spacing: -.01em; }
+.brand:hover { color: var(--accent); text-decoration: none; }
+.brand::before { content: "$ "; color: var(--accent-dim); font-weight: 400; }
 
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0a0a12;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--lum-periwinkle);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--lum-pink-bright);
-}
+.menu { display: flex; gap: 1.1rem; font-size: .82rem; letter-spacing: .06em; text-transform: lowercase; }
+.menu a { color: var(--text-dim); }
+.menu a:hover { color: var(--accent); text-decoration: none; }
 
-/* ===== MARKDOWN ===== */
-.markdown-body h1 {
-  @apply text-2xl sm:text-3xl font-bold mt-8 mb-4;
-  color: var(--lum-sky);
-  text-shadow: 0 0 20px rgba(172, 246, 251, 0.15);
+.subhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem 1rem;
+  margin: .7rem 0 2.5rem;
 }
-.markdown-body h2 {
-  @apply text-xl sm:text-2xl font-bold mt-6 mb-3;
-  color: var(--lum-pink-bright);
+.tagline { color: var(--text-dim); font-size: .87rem; margin: 0; }
+.langs { font-size: .8rem; color: var(--text-dim); white-space: nowrap; }
+.langs a { color: var(--text-dim); }
+.langs a[aria-current="true"] { color: var(--accent); }
+.langs span { opacity: .4; margin: 0 .45rem; }
+
+/* ---------- sections ---------- */
+.h-section {
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
-.markdown-body h3 {
-  @apply text-lg sm:text-xl font-bold mt-4 mb-2;
-  color: var(--lum-lavender);
+.h-section::before { content: "# "; color: var(--accent-dim); }
+section:first-of-type .h-section { margin-top: 0; }
+
+/* ---------- services ---------- */
+.svc { border-top: 1px solid var(--border); }
+.svc > div { padding: .85rem 0; border-bottom: 1px solid var(--border); }
+.svc dt { font-weight: 600; color: var(--text-strong); }
+.svc dd { margin: .15rem 0 0; color: var(--text-dim); font-size: .9rem; }
+
+/* ---------- project list ---------- */
+.projects { list-style: none; margin: 0; padding: 0; }
+.projects > li { padding: .8rem 0 .8rem 1rem; border-left: 1px solid var(--border); }
+.projects > li:hover { border-left-color: var(--accent-dim); }
+.projects .name { color: var(--text-strong); font-weight: 600; }
+.projects .blurb { display: block; color: var(--text-dim); font-size: .9rem; margin-top: .15rem; }
+.projects .src { font-size: .8rem; color: var(--text-dim); }
+
+/* ---------- note ---------- */
+.note {
+  margin: 2rem 0 0;
+  padding: .8rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent-dim);
+  background: var(--bg-soft);
+  color: var(--text-dim);
+  font-size: .87rem;
 }
-.markdown-body p {
-  @apply mb-4 leading-relaxed;
+.note b { color: var(--text); font-weight: 600; }
+
+/* ---------- footer ---------- */
+.site-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
 }
-.markdown-body ul {
-  @apply list-disc pl-6 mb-4 space-y-1;
-}
-.markdown-body ol {
-  @apply list-decimal pl-6 mb-4 space-y-1;
-}
-.markdown-body blockquote {
-  @apply border-l-4 pl-4 italic my-4 py-2;
-  border-color: var(--lum-pink-bright);
-  color: var(--lum-muted);
-}
-.markdown-body pre {
-  @apply p-4 rounded-md overflow-x-auto mb-4;
-  background: #0f0a1e;
-  border: 1px solid rgba(170, 160, 219, 0.2);
-}
-.markdown-body code {
-  @apply px-1.5 py-0.5 rounded text-sm;
-  background: #0f0a1e;
-  color: var(--lum-cyan);
-}
-.markdown-body pre code {
-  @apply bg-transparent p-0 text-sm;
-  color: var(--lum-text);
-}
-.markdown-body hr {
-  @apply my-8;
-  border-color: rgba(218, 168, 220, 0.2);
-}
-.markdown-body strong {
-  @apply font-bold;
-  color: var(--lum-gold);
-}
+.badges { display: flex; flex-wrap: wrap; gap: .4rem; opacity: .55; transition: opacity .2s; }
+.badges:hover { opacity: 1; }
+.badges img { display: block; height: 31px; width: auto; }
+.colophon { margin: 1rem 0 0; color: var(--text-dim); font-size: .78rem; }
+
+/* ---------- prose (blog/markdown) ---------- */
+.prose h1 { font-size: 1.4rem; margin: 0 0 .5rem; }
+.prose h2 { font-size: 1.1rem; margin: 2rem 0 .6rem; color: var(--text-strong); }
+.prose code { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 3px; padding: .1em .35em; font-size: .9em; }
+.prose pre { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; overflow-x: auto; }
+.prose pre code { background: none; border: 0; padding: 0; }
+
+/* ---------- post list ---------- */
+.posts { list-style: none; margin: 0; padding: 0; }
+.posts > li { padding: .7rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.posts .date { color: var(--text-dim); font-size: .82rem; white-space: nowrap; }

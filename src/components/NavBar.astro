@@ -1,68 +1,44 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import { languages, ui, defaultLang } from "../i18n/ui";
+import { languages, defaultLang } from "../i18n/ui";
 
 const { pathname } = Astro.url;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Strip the locale prefix before testing for the home page, otherwise the
-// non-default locales (/en, /en/) never match and lose the tagline.
-const homePath = pathname.replace(`/${lang}`, "").replace(/index\.html$/, "");
-const isHome = homePath === "/" || homePath === "";
+// Path with the locale prefix removed, so /en and /en/ are recognised as home.
+const basePath = pathname.replace(`/${lang}`, "").replace(/index\.html$/, "");
+const isHome = basePath === "/" || basePath === "";
+
+// Prefix a path for the active locale; the default locale lives at the root.
+const localised = (path: string) =>
+  lang === defaultLang ? path : `/${lang}${path === "/" ? "" : path}`;
 ---
 
-<nav class="mb-12 mt-4">
-  <div>
-    <div class="flex items-baseline justify-between border-b pb-1 mb-2" style="border-color: rgba(170, 160, 219, 0.25);">
-      <h1 class="text-[var(--lum-sky)] text-xl sm:text-2xl font-bold flex items-center gap-2">
-        <a href={lang === defaultLang ? "/" : `/${lang}/`} class="hover:text-[var(--lum-pink-bright)] no-underline transition-all duration-300 flex items-center gap-2">
-          <span class="text-lg">⚡</span>
-          {t('site.title')}
-        </a>
-      </h1>
-      <div class="flex gap-3 sm:gap-4 text-sm font-bold uppercase tracking-widest">
-          <a href={lang === defaultLang ? "/zen" : `/${lang}/zen`} class="text-zinc-400 hover:text-[var(--lum-pink-bright)] no-underline transition-colors">{t('nav.zen')}</a>
-          <a href="https://status.krr.cl/status/krr-cl" class="text-zinc-400 hover:text-[var(--lum-pink-bright)] no-underline transition-colors">{t('nav.status')}</a>
-          <a href="#projects" class="text-zinc-400 hover:text-[var(--lum-pink-bright)] no-underline transition-colors">{t('nav.projects')}</a>
-          <a href={lang === defaultLang ? "/blog" : `/${lang}/blog`} class="text-zinc-400 hover:text-[var(--lum-pink-bright)] no-underline transition-colors">{t('nav.blog')}</a>
-      </div>
-    </div>
-    <!-- Language selector row -->
-    <div class="flex justify-end text-sm mb-2">
-      {Object.entries(languages).map(([locale, name]) => (
-        <a
-          href={(() => {
-            let targetPath = pathname.replace(`/${lang}`, '');
-            if (targetPath === '') targetPath = '/';
-            return locale === defaultLang ? targetPath : `/${locale}${targetPath === '/' ? '' : targetPath}`;
-          })()}
-          class={`ml-2 ${locale === lang ? 'font-bold text-[var(--lum-sky)]' : 'text-zinc-400 hover:text-[var(--lum-pink-bright)]'} no-underline transition-colors`}
-        >
-          {name}
-        </a>
+<header>
+  <div class="masthead">
+    <a class="brand" href={localised("/")}>{t('site.title')}</a>
+    <nav class="menu">
+      <a href={localised("/zen")}>{t('nav.zen')}</a>
+      <a href="https://status.krr.cl/status/krr-cl">{t('nav.status')}</a>
+      <a href="#projects">{t('nav.projects')}</a>
+      <a href={localised("/blog")}>{t('nav.blog')}</a>
+    </nav>
+  </div>
+
+  <div class="subhead">
+    {isHome ? <p class="tagline">{t('nav.motiv')}</p> : <span></span>}
+    <div class="langs">
+      {Object.entries(languages).map(([locale, name], i) => (
+        <>
+          {i > 0 && <span>·</span>}
+          <a
+            href={locale === defaultLang ? (basePath || "/") : `/${locale}${basePath === "/" ? "" : basePath}`}
+            aria-current={locale === lang ? "true" : undefined}
+          >{name}</a>
+        </>
       ))}
     </div>
   </div>
-  {isHome && (
-    <div class="relative">
-      <p class="text-zinc-400 italic text-sm sm:text-base">
-        {t('nav.motiv')}
-      </p>
-      <span class="absolute -left-4 top-1/2 -translate-y-1/2 text-[var(--lum-sky)] opacity-30 hidden sm:inline">⚡</span>
-    </div>
-  )}
-</nav>
-
-<style>
-  nav h1 a span.text-lg {
-    display: inline-block;
-    animation: spark 2s ease-in-out infinite;
-  }
-
-  @keyframes spark {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.2); opacity: 1; text-shadow: 0 0 12px rgba(172, 246, 251, 0.8); }
-  }
-</style>
+</header>
