@@ -3,7 +3,7 @@ export const welcomeTranslations = {
     'hero.title': 'Desarrollo de software y aplicaciones web.',
     'welcome.whoami.title': 'whoami',
     'welcome.whoami.p1': 'Soy Benjamin Robles (krr), Ingeniero Civil Informático titulado de la Pontificia Universidad Católica de Valparaíso. Actualmente construyo software freelance y de consultoría.',
-    'welcome.whoami.p2': 'Mi modo por defecto es arreglar cosas: mejorar la calidad de vida, quitar fricción y hacer que los sistemas funcionen mejor, sea software, una instalación domótica o un auto. Trabajo a lo largo de todo el stack y disfruto hacer ingeniería inversa de sistemas que no conozco para construir soluciones prácticas.',
+    'welcome.whoami.p2': 'Mi modo por defecto es arreglar cosas: entender cómo funcionan, quitar fricción y hacer que los sistemas funcionen mejor, sea software, una instalación domótica o un auto. Trabajo a lo largo de todo el stack y disfruto hacer ingeniería inversa de sistemas que no conozco para construir soluciones prácticas.',
     'welcome.contact': 'Contacto:',
 
     'welcome.doing.title': 'qué hago',
@@ -23,7 +23,7 @@ export const welcomeTranslations = {
     'hero.title': 'Software and web application development.',
     'welcome.whoami.title': 'whoami',
     'welcome.whoami.p1': 'I am Benjamin Robles (krr), a computer engineer graduated from Pontificia Universidad Católica de Valparaíso, Chile. I currently build freelance and consulting software.',
-    'welcome.whoami.p2': 'My default mode is fixing things: improving quality of life, removing friction and making systems work better, whether that is software, a home automation setup or a car. I work across the stack and enjoy reverse-engineering unfamiliar systems to build practical solutions.',
+    'welcome.whoami.p2': 'My default mode is fixing things: understanding how they work, removing friction and making systems work better, whether that is software, a home automation setup or a car. I work across the stack and enjoy reverse-engineering unfamiliar systems to build practical solutions.',
     'welcome.contact': 'Contact:',
 
     'welcome.doing.title': 'what i do',
