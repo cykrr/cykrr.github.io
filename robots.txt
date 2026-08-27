@@ -1,0 +1,10 @@
+# Crawl policy for krr.cl
+User-agent: *
+Allow: /
+Allow: /portfolio/
+Allow: /blog/
+Allow: /en/
+Disallow: /pagefind/
+Disallow: /404.html
+
+Sitemap: https://krr.cl/sitemap-index.xml
