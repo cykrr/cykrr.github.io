@@ -1,4 +1,92 @@
-<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.16.6"><meta name="color-scheme" content="dark"><title>krr.cl</title><meta name="description" content="Benjamin Robles — desarrollo de software práctico para negocios y equipos pequeños desde Viña del Mar, Chile."><link rel="canonical" href="https://krr.cl/portfolio/planetarium-vr/"><link rel="alternate" type="application/rss+xml" title="krr.cl" href="/rss.xml"><meta property="og:type" content="website"><meta property="og:site_name" content="krr.cl"><meta property="og:title" content="krr.cl"><meta property="og:description" content="Benjamin Robles — desarrollo de software práctico para negocios y equipos pequeños desde Viña del Mar, Chile."><meta property="og:url" content="https://krr.cl/portfolio/planetarium-vr/"><meta property="og:image" content="https://krr.cl/img/og.png"><meta property="og:locale" content="es_CL"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="krr.cl"><meta name="twitter:description" content="Benjamin Robles — desarrollo de software práctico para negocios y equipos pequeños desde Viña del Mar, Chile."><meta name="twitter:image" content="https://krr.cl/img/og.png"><link rel="stylesheet" href="/_astro/debug-ios-widgetkit-trollstore.CS7F6u4T.css"><script type="module" src="/_astro/page.B1D-nYk3.js"></script></head> <body> <header> <div class="masthead"> <a class="brand" href="/">krr.cl</a> <nav class="menu"> <a href="/zen">zen</a> <a href="https://status.krr.cl/status/krr-cl">estado</a> <a href="#projects">Proyectos</a> <a href="/blog">Blog</a> </nav> </div> <div class="subhead"> <span></span> <div class="langs"> <a href="/portfolio/planetarium-vr/" aria-current="true">Español</a> <span>·</span><a href="/en/portfolio/planetarium-vr/">English</a>  </div> </div> </header> <main>  <main class="flex flex-col justify-center py-16 sm:py-24"> <div class="mb-12"> <h1 class="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-6xl text-balance mb-4"> PlanetariumVR: Redefiniendo la educación en astronomía a través de la realidad virtual inmersiva </h1> <p class="text-lg text-zinc-300 font-medium"> <strong>Rol:</strong> Developer | <span class="text-gray-500 italic">Equipo: Oscar Rojas Gaete, Sebastián Jeria López, Benjamín Robles Varas, Esteban Carrasco</span> </p> <!-- Add tags if applicable, for now, let's keep it minimal --> <!-- <div class="flex gap-2 mt-4">
+<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.16.6"><meta name="color-scheme" content="dark"><title>krr.cl</title><meta name="description" content="Benjamin Robles — desarrollo de software práctico para negocios y equipos pequeños desde Viña del Mar, Chile."><link rel="canonical" href="https://krr.cl/portfolio/planetarium-vr/"><link rel="alternate" type="application/rss+xml" title="krr.cl" href="/rss.xml"><meta property="og:type" content="website"><meta property="og:site_name" content="krr.cl"><meta property="og:title" content="krr.cl"><meta property="og:description" content="Benjamin Robles — desarrollo de software práctico para negocios y equipos pequeños desde Viña del Mar, Chile."><meta property="og:url" content="https://krr.cl/portfolio/planetarium-vr/"><meta property="og:image" content="https://krr.cl/img/og.png"><meta property="og:locale" content="es_CL"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="krr.cl"><meta name="twitter:description" content="Benjamin Robles — desarrollo de software práctico para negocios y equipos pequeños desde Viña del Mar, Chile."><meta name="twitter:image" content="https://krr.cl/img/og.png"><link rel="stylesheet" href="/_astro/debug-ios-widgetkit-trollstore.D64RztY3.css"><script type="module" src="/_astro/page.B1D-nYk3.js"></script></head> <body> <!--
+  Synchronous check, runs before first paint (before NavBar is even parsed).
+  Overlay is display:none by default, so no-JS visitors never see it.
+--><script>(function(){const KEY = "krr:intro:v1";
+
+	(function () {
+		if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && !localStorage.getItem(KEY)) {
+			document.documentElement.classList.add("intro-pending");
+		}
+	})();
+})();</script> <div id="intro" class="astro-u43ozx4m"> <pre id="intro-log" class="astro-u43ozx4m"></pre> </div> <script>(function(){const KEY = "krr:intro:v1";
+
+	const overlay = document.getElementById("intro");
+	const log = document.getElementById("intro-log");
+
+	if (overlay && log && document.documentElement.classList.contains("intro-pending")) {
+		const LINES = [
+			"$ krr.cl v2.0.1",
+			"gfx: OK       mem: 64k OK",
+			"rtc: " + new Date().toISOString().slice(0, 10) + " OK",
+			"net: krr.cl OK",
+			"",
+			"loading site... OK",
+		];
+
+		let started = false;
+		let finished = false;
+
+		// Blinking prompt while waiting for the first interaction.
+		// The interaction doubles as the gesture that unlocks Web Audio,
+		// so the boot beeps are guaranteed to play on first visit.
+		const prompt = "$ press any key";
+		const blink = setInterval(() => {
+			log.textContent = prompt + (log.dataset.cur === "1" ? "_" : "");
+			log.dataset.cur = log.dataset.cur === "1" ? "0" : "1";
+		}, 500);
+		log.textContent = prompt + "_";
+
+		function finish() {
+			if (finished) return;
+			finished = true;
+			localStorage.setItem(KEY, "1");
+			document.documentElement.classList.remove("intro-pending");
+			overlay.classList.add("intro-done");
+			overlay.addEventListener("transitionend", () => overlay.remove(), { once: true });
+			setTimeout(() => overlay.remove(), 600); // fallback if the transition never fires
+			window.dispatchEvent(new CustomEvent("krr:sfx", { detail: "confirm" }));
+		}
+
+		function typeLines(lineIndex, charIndex) {
+			if (lineIndex >= LINES.length) {
+				finish();
+				return;
+			}
+			const line = LINES[lineIndex];
+			const html =
+				LINES.slice(0, lineIndex)
+					.map((l) => l.replaceAll("OK", '<span class="ok">OK</span>'))
+					.join("\n") +
+				(lineIndex ? "\n" : "") +
+				line.slice(0, charIndex).replaceAll("OK", '<span class="ok">OK</span>');
+			log.innerHTML = html;
+			if (charIndex < line.length) {
+				setTimeout(() => typeLines(lineIndex, charIndex + 1), 10);
+			} else {
+				setTimeout(() => typeLines(lineIndex + 1, 0), 70);
+			}
+		}
+
+		function begin() {
+			if (started) return;
+			started = true;
+			clearInterval(blink);
+			log.innerHTML = "";
+			log.dataset.cur = "";
+			window.dispatchEvent(new CustomEvent("krr:sfx", { detail: "boot" }));
+			typeLines(0, 0);
+		}
+
+		window.addEventListener("keydown", begin, { once: true });
+		window.addEventListener("wheel", begin, { once: true });
+		window.addEventListener("pointerdown", begin, { once: true });
+
+		// Escape skips the typing and reveals the site right away.
+		window.addEventListener("keydown", (e) => {
+			if (e.key === "Escape") finish();
+		});
+	}
+})();</script>  <script type="module">const m=()=>window.matchMedia("(prefers-reduced-motion: reduce)").matches,c=()=>localStorage.getItem("krr:mute")==="1";let n=null,d=!1;function u(){if(d=!0,!n){const e=window.AudioContext||window.webkitAudioContext;if(!e)return;n=new e}n.state==="suspended"&&n.resume()}window.addEventListener("pointerdown",u);window.addEventListener("keydown",u);function o(e,t,l="square",f=.08,w=0){const s=n.currentTime+w,r=n.createOscillator(),a=n.createGain();r.type=l,r.frequency.value=e,a.gain.setValueAtTime(f,s),a.gain.exponentialRampToValueAtTime(.001,s+t),r.connect(a).connect(n.destination),r.start(s),r.stop(s+t+.02)}const p={boot:()=>[392,523,659].forEach((e,t)=>o(e,.09,"square",.1,t*.09)),hover:()=>o(1400,.015,"sine",.03),confirm:()=>{o(880,.05,"square",.09),o(1175,.07,"square",.07,.05)},back:()=>{o(587,.05,"square",.09),o(440,.07,"square",.07,.05)}};function i(e){if(c()||m()||!d||!n)return;const t=p[e];t&&t()}document.addEventListener("pointerenter",e=>{if(e.pointerType!=="mouse")return;const t=e.target.closest("[data-sfx-hover]");t&&i(t.dataset.sfxHover)});document.addEventListener("click",e=>{const t=e.target.closest("[data-sfx]");t&&i(t.dataset.sfx)});window.addEventListener("krr:sfx",e=>i(e.detail));window.krrToggleMute=()=>{localStorage.setItem("krr:mute",c()?"0":"1")};</script> <header> <div class="masthead"> <a class="brand" href="/" data-sfx="confirm" data-sfx-hover="hover">krr.cl</a> <nav class="menu"> <a href="/zen" data-sfx="confirm" data-sfx-hover="hover">zen</a> <a href="https://status.krr.cl/status/krr-cl" data-sfx="confirm" data-sfx-hover="hover">estado</a> <a href="#projects" data-sfx="confirm" data-sfx-hover="hover">Proyectos</a> <a href="/blog" data-sfx="confirm" data-sfx-hover="hover">Blog</a> </nav> </div> <div class="subhead"> <span></span> <div class="langs"> <a href="/portfolio/planetarium-vr/" aria-current="true" data-sfx="back">Español</a> <span>·</span><a href="/en/portfolio/planetarium-vr/" data-sfx="back">English</a>  </div> </div> </header> <main>  <main class="flex flex-col justify-center py-16 sm:py-24"> <div class="mb-12"> <h1 class="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-6xl text-balance mb-4"> PlanetariumVR: Redefiniendo la educación en astronomía a través de la realidad virtual inmersiva </h1> <p class="text-lg text-zinc-300 font-medium"> <strong>Rol:</strong> Developer | <span class="text-gray-500 italic">Equipo: Oscar Rojas Gaete, Sebastián Jeria López, Benjamín Robles Varas, Esteban Carrasco</span> </p> <!-- Add tags if applicable, for now, let's keep it minimal --> <!-- <div class="flex gap-2 mt-4">
                     {["VR", "EdTech", "Networking"].map(tag => (
                         <span class="px-3 py-1 bg-zinc-800 text-zinc-300 rounded-full text-sm font-semibold">{tag}</span>
                     ))}
