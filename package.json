@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "rm -rf public/graph && cp -r lib/graph public/graph && sed -i 's|/assets/|/graph/assets/|g' public/graph/index.html",
+    "prebuild": "if [ -f lib/graph/index.html ]; then rm -rf public/graph && cp -r lib/graph public/graph && sed -i 's|/assets/|/graph/assets/|g' public/graph/index.html; fi",
     "build": "npm run prebuild && astro build",
     "preview": "astro preview",
     "astro": "astro"

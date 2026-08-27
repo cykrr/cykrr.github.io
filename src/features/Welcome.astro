@@ -4,9 +4,27 @@ import Portfolio from './Portfolio.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const floreriaPath = lang === 'en' ? '/en/portfolio/floreria-coral' : '/portfolio/floreria-coral';
 
 const doing = ['speech', 'product', 'systems', 'ai'] as const;
 ---
+
+<section class="hero" aria-labelledby="intro-title">
+  <p class="eyebrow">{t('welcome.hero.eyebrow')}</p>
+  <h1 id="intro-title">{t('welcome.hero.title')}</h1>
+  <p class="hero-copy">{t('welcome.hero.description')}</p>
+  <div class="hero-actions">
+    <a class="button button-primary" href="#floreria-coral">{t('welcome.hero.primary')}</a>
+    <a class="button" href="mailto:me@krr.cl">{t('welcome.hero.secondary')}</a>
+  </div>
+</section>
+
+<section id="floreria-coral" class="featured-work" aria-labelledby="floreria-coral-title">
+  <p class="eyebrow">{t('welcome.featured.eyebrow')}</p>
+  <h2 id="floreria-coral-title">{t('welcome.featured.title')}</h2>
+  <p>{t('welcome.featured.description')}</p>
+  <a class="featured-link" href={floreriaPath}>{t('welcome.featured.link')}</a>
+</section>
 
 <section>
   <h2 class="h-section">{t('welcome.whoami.title')}</h2>
