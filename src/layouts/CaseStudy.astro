@@ -1,0 +1,73 @@
+---
+// Shared frame for every case-study page: header, hero image, body slot,
+// then links / team / stack. Styling lives in global.css under `.case`.
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+
+interface Props {
+  title: string;
+  /** Pre-translated page <title>; defaults to `title`. */
+  pageTitle?: string;
+  role?: string;
+  team?: string;
+  tags?: string[];
+  image: ImageMetadata;
+  imageAlt: string;
+  /** Buttons under the hero. The first one is rendered as primary. */
+  links?: { href: string; label: string }[];
+  people?: { title: string; names: string[] };
+  stack?: { title: string; items: { name: string; src: string }[] };
+  backHref: string;
+  backLabel: string;
+}
+
+const { title, pageTitle, role, team, tags = [], image, imageAlt, links = [], people, stack, backHref, backLabel } = Astro.props;
+---
+
+<Layout title={pageTitle ?? title}>
+  <article class="case">
+    <header class="case-head">
+      <h1>{title}</h1>
+      {(role || team) && (
+        <p class="case-meta">
+          {role && <strong>{role}</strong>}{role && team && ' · '}{team && <span>{team}</span>}
+        </p>
+      )}
+      {tags.length > 0 && (
+        <ul class="tags">{tags.map((tag) => <li>{tag}</li>)}</ul>
+      )}
+    </header>
+
+    <Image src={image} width={1200} alt={imageAlt} class="case-hero" />
+
+    {links.length > 0 && (
+      <div class="hero-actions case-links">
+        {links.map((l, i) => (
+          <a class:list={['button', { 'button-primary': i === 0 }]} href={l.href}>{l.label}</a>
+        ))}
+      </div>
+    )}
+
+    <slot />
+
+    {people && (
+      <section>
+        <h2>{people.title}</h2>
+        <ul class="plain">{people.names.map((n) => <li>{n}</li>)}</ul>
+      </section>
+    )}
+
+    {stack && (
+      <section>
+        <h2>{stack.title}</h2>
+        <ul class="stack">
+          {stack.items.map((s) => (
+            <li><img src={s.src} alt={s.name} title={s.name} loading="lazy" /></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <p><a href={backHref}>{backLabel}</a></p>
+  </article>
+</Layout>

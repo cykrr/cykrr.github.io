@@ -1,0 +1,60 @@
+---
+import CaseStudy from "@/layouts/CaseStudy.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import preview from "@/assets/previews/floreria-coral.png";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const site = "https://floreriacoral.cl";
+const tags = ["ecommerce", "local_business", "wordpress", "woocommerce", "webpay", "ai-ready"];
+---
+
+<CaseStudy
+  title={t('floreria.title')}
+  role={t('floreria.role')}
+  team={t('floreria.team_status')}
+  tags={tags.map((k) => t(`floreria.tags.${k}`))}
+  image={preview}
+  imageAlt={t('floreria.aside.img_alt')}
+  links={[{ href: site, label: t('floreria.aside.button') }]}
+  people={{ title: t('floreria.aside.developed_by'), names: ["Benjamin Robles"] }}
+  backHref={lang === 'en' ? '/en/' : '/'}
+  backLabel={lang === 'en' ? '← Back home' : '← Volver al inicio'}
+>
+  <section>
+    <h2>{t('floreria.overview.title')}</h2>
+    <p set:html={t('floreria.overview.p1')}></p>
+    <p set:html={t('floreria.overview.p2')}></p>
+  </section>
+
+  <section>
+    <h2>{t('floreria.features.title')}</h2>
+    {[1, 2, 3].map((n) => (
+      <>
+        <h3>{t(`floreria.features.${n}.title`)}</h3>
+        <p set:html={t(`floreria.features.${n}.description`)}></p>
+      </>
+    ))}
+  </section>
+
+  <section>
+    <h2>{t('floreria.challenge.title')}</h2>
+    <p set:html={t('floreria.challenge.p1')}></p>
+  </section>
+
+  <section>
+    <h2>{t('floreria.takeaways.title')}</h2>
+    <p set:html={t('floreria.takeaways.p1')}></p>
+  </section>
+
+  <section>
+    <h2>{t('floreria.resources.title')}</h2>
+    <ul class="resources">
+      <li>
+        <a href={site}>{t('floreria.resources.site.title')}</a>
+        <span>{t('floreria.resources.site.description')}</span>
+      </li>
+    </ul>
+  </section>
+</CaseStudy>

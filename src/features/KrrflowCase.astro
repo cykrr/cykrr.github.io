@@ -1,42 +1,42 @@
 ---
-import { Image } from "astro:assets";
+import CaseStudy from "@/layouts/CaseStudy.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import shot from "@/assets/previews/krrflow.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const home = lang === 'en' ? '/en/' : '/';
 const eng = ['cache', 'decode', 'pool', 'audio', 'look', 'profile'] as const;
 ---
 
-<section class="hero" aria-labelledby="krrflow-title">
-  <p class="eyebrow">{t('krrflow.eyebrow')}</p>
-  <h1 id="krrflow-title">{t('krrflow.title')}</h1>
-  <p class="hero-copy">{t('krrflow.lede')}</p>
-  <Image src={shot} width={1400} alt={t('krrflow.alt')} style="width:100%;height:auto;border:1px solid var(--border);" />
-  <p class="note" style="margin-top:.8rem">{t('krrflow.status')}</p>
-</section>
+<CaseStudy
+  title={t('krrflow.title')}
+  role={t('krrflow.eyebrow')}
+  team={t('krrflow.status')}
+  image={shot}
+  imageAlt={t('krrflow.alt')}
+  backHref={lang === 'en' ? '/en/' : '/'}
+  backLabel={t('krrflow.back')}
+>
+  <p>{t('krrflow.lede')}</p>
 
-<section>
-  <h2 class="h-section">{t('krrflow.idea.title')}</h2>
-  <p set:html={t('krrflow.idea.p1')}></p>
-  <p set:html={t('krrflow.idea.p2')}></p>
-</section>
+  <section>
+    <h2>{t('krrflow.idea.title')}</h2>
+    <p set:html={t('krrflow.idea.p1')}></p>
+    <p set:html={t('krrflow.idea.p2')}></p>
+  </section>
 
-<section>
-  <h2 class="h-section">{t('krrflow.eng.title')}</h2>
-  <ul class="projects">
+  <section>
+    <h2>{t('krrflow.eng.title')}</h2>
     {eng.map((k) => (
-      <li>
-        <span class="name">{t(`krrflow.eng.${k}.title`)}</span>
-        <span class="blurb" set:html={t(`krrflow.eng.${k}.text`)}></span>
-      </li>
+      <>
+        <h3>{t(`krrflow.eng.${k}.title`)}</h3>
+        <p set:html={t(`krrflow.eng.${k}.text`)}></p>
+      </>
     ))}
-  </ul>
-</section>
+  </section>
 
-<section>
-  <h2 class="h-section">{t('krrflow.shape.title')}</h2>
-  <p set:html={t('krrflow.shape.text')}></p>
-  <p><a href={home}>{t('krrflow.back')}</a></p>
-</section>
+  <section>
+    <h2>{t('krrflow.shape.title')}</h2>
+    <p set:html={t('krrflow.shape.text')}></p>
+  </section>
+</CaseStudy>

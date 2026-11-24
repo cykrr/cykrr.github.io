@@ -1,0 +1,180 @@
+---
+import CaseStudy from "@/layouts/CaseStudy.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import preview from "@/assets/previews/planetarium-vr.png";
+import logoUnity from "@/assets/badges/logo-unity.png";
+import logoCsharp from "@/assets/badges/logo-csharp.png";
+import logoAndroid from "@/assets/badges/android-logo.svg";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const developers = [
+  "Oscar Rojas Gaete",
+  "Sebastián Jeria López",
+  "Benjamín Robles Varas",
+  "Esteban Carrasco",
+];
+const stack = [
+  { key: "unity", src: logoUnity.src },
+  { key: "csharp", src: logoCsharp.src },
+  { key: "android", src: logoAndroid.src },
+];
+
+// Questionnaire means (1-5), keyed by `planetariumvr.testing.<key>`.
+const perception = [
+  { key: "immersion", pre: 3.62, post: 4.39 },
+  { key: "control", pre: 3.85, post: 4.37 },
+  { key: "value", pre: 4.05, post: 4.44 },
+  { key: "joy", pre: 3.96, post: 4.58 },
+  { key: "ease_of_use", pre: 3.80, post: 4.39 },
+];
+
+const resources = {
+  video: "https://www.youtube.com/embed/yPfOdVHTRV0",
+  repo: "https://github.com/cykrr/planetariumvr",
+  apk: "https://drive.google.com/file/d/15iG5YSNSe9tON2jddYGFWGzobvNgmfvF/view?usp=drive_link",
+  paper: "https://drive.google.com/file/d/1tiCZKmM5dPeR4aoe2jfIANety2N2PT6c/view",
+  presentation: "https://drive.google.com/file/d/1bsfdamwXu0IlHVP8dhOZWGXoySFqibLE/view?usp=drive_link",
+};
+const img = "/img/planetariumvr";
+---
+
+<CaseStudy
+  title={t('planetariumvr.title')}
+  role={`${t('planetariumvr.role')} Developer`}
+  team={`${t('planetariumvr.team')} ${developers.join(', ')}`}
+  image={preview}
+  imageAlt={t('planetariumvr.aside.img_alt')}
+  links={[
+    { href: resources.video, label: t('planetariumvr.aside.button1') },
+    { href: resources.repo, label: t('planetariumvr.aside.button2') },
+  ]}
+  people={{ title: t('planetariumvr.aside.team_title'), names: developers }}
+  stack={{
+    title: t('planetariumvr.aside.tech_stack_title'),
+    items: stack.map((s) => ({ name: t(`planetariumvr.aside.tech_${s.key}`), src: s.src })),
+  }}
+  backHref={lang === 'en' ? '/en/' : '/'}
+  backLabel={lang === 'en' ? '← Back home' : '← Volver al inicio'}
+>
+  <section>
+    <h2>{t('planetariumvr.overview.title')}</h2>
+    <p set:html={t('planetariumvr.overview.p1')}></p>
+    <p set:html={t('planetariumvr.overview.p2')}></p>
+    <div class="shots">
+      <img src={`${img}/planet-earth.png`} alt={t('planetariumvr.overview.img1_alt')} loading="lazy" />
+      <img src={`${img}/planet-ring.png`} alt={t('planetariumvr.overview.img2_alt')} loading="lazy" />
+    </div>
+  </section>
+
+  <section>
+    <h2>{t('planetariumvr.features.title')}</h2>
+    <h3>{t('planetariumvr.features.1.title')}</h3>
+    <p set:html={t('planetariumvr.features.1.description')}></p>
+
+    <h3>{t('planetariumvr.features.2.title')}</h3>
+    <p set:html={t('planetariumvr.features.2.description')}></p>
+    <figure>
+      <img src={`${img}/point-to-grab.png`} alt={t('planetariumvr.features.img3_alt')} loading="lazy" />
+      <figcaption>{t('planetariumvr.features.img3_caption')}</figcaption>
+    </figure>
+
+    <h3>{t('planetariumvr.features.3.title')}</h3>
+    <p set:html={t('planetariumvr.features.3.description')}></p>
+    <figure>
+      <img src={`${img}/physical-schema.png`} alt={t('planetariumvr.features.img4_alt')} loading="lazy" />
+      <figcaption>{t('planetariumvr.features.img4_caption')}</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>{t('planetariumvr.testing.title')}</h2>
+    <p set:html={t('planetariumvr.testing.p1')}></p>
+
+    <div class="bars">
+      <h3>{t('planetariumvr.testing.questionnaire_title')}</h3>
+      {perception.map((p) => (
+        <div class="bar-row">
+          <div class="label">
+            <span>{t(`planetariumvr.testing.${p.key}`)}</span>
+            <span class="delta"><strong>{p.post}</strong> (+{(p.post - p.pre).toFixed(2)})</span>
+          </div>
+          <div class="bar-track" role="img" aria-label={`${p.pre} → ${p.post}`}>
+            <i class="bar-post" style={`width:${(p.post / 5) * 100}%`}></i>
+            <i class="bar-pre" style={`width:${(p.pre / 5) * 100}%`}></i>
+          </div>
+          <div class="bar-nums">
+            <span>{t('planetariumvr.testing.pre_test')}: {p.pre}</span>
+            <span>{t('planetariumvr.testing.post_test')}: {p.post}</span>
+          </div>
+        </div>
+      ))}
+      <div class="legend">
+        <span><i class="bar-pre"></i>{t('planetariumvr.testing.pre_test')}</span>
+        <span><i class="bar-post"></i>{t('planetariumvr.testing.post_test')}</span>
+      </div>
+    </div>
+
+    <p set:html={t('planetariumvr.testing.p2')}></p>
+    <ul>
+      <li><strong>{t('planetariumvr.testing.list.immersion')}</strong> +0.77 (3.62 → 4.39)</li>
+      <li><strong>{t('planetariumvr.testing.list.joy')}</strong> +0.62 (3.96 → 4.58)</li>
+      <li><strong>{t('planetariumvr.testing.list.ease_of_use')}</strong> +0.60 (3.80 → 4.39)</li>
+      <li><strong>{t('planetariumvr.testing.list.control')}</strong> +0.52 (3.85 → 4.37)</li>
+      <li><strong>{t('planetariumvr.testing.list.value')}</strong> +0.40 (4.05 → 4.44)</li>
+    </ul>
+
+    <div class="shots">
+      <img src={`${img}/user-testing-1.jpeg`} alt={t('planetariumvr.testing.img5_alt')} loading="lazy" />
+      <img src={`${img}/user-testing-2.jpeg`} alt={t('planetariumvr.testing.img6_alt')} loading="lazy" />
+    </div>
+  </section>
+
+  <section>
+    <h2>{t('planetariumvr.feedback.title')}</h2>
+    <p set:html={t('planetariumvr.feedback.p1')}></p>
+    <ul>
+      {[1, 2, 3].map((n) => (
+        <li><em set:html={`"${t(`planetariumvr.feedback.quote${n}`)}"`}></em></li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t('planetariumvr.challenges.title')}</h2>
+    <p set:html={t('planetariumvr.challenges.p1')}></p>
+    <ol>
+      {[1, 2].map((n) => (
+        <li><strong>{t(`planetariumvr.challenges.${n}.title`)}</strong> <span set:html={t(`planetariumvr.challenges.${n}.description`)}></span></li>
+      ))}
+    </ol>
+  </section>
+
+  <section>
+    <h2>{t('planetariumvr.roadmap.title')}</h2>
+    <p set:html={t('planetariumvr.roadmap.p1')}></p>
+    <ul>
+      {[1, 2, 3].map((n) => (
+        <li><strong>{t(`planetariumvr.roadmap.${n}.title`)}</strong> <span set:html={t(`planetariumvr.roadmap.${n}.description`)}></span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t('planetariumvr.takeaways.title')}</h2>
+    <p set:html={t('planetariumvr.takeaways.p1')}></p>
+  </section>
+
+  <section>
+    <h2>{t('planetariumvr.resources.title')}</h2>
+    <ul class="resources">
+      {(['apk', 'paper', 'presentation'] as const).map((k) => (
+        <li>
+          <a href={resources[k]}>{t(`planetariumvr.resources.${k}.title`)}</a>
+          <span>{t(`planetariumvr.resources.${k}.description`)}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</CaseStudy>

@@ -1,0 +1,125 @@
+---
+import CaseStudy from "@/layouts/CaseStudy.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import preview from "@/assets/previews/biolab-escape.png";
+import logoCsharp from "@/assets/badges/logo-csharp.png";
+import logoUnity from "@/assets/badges/logo-unity.png";
+import logoGhPages from "@/assets/badges/logo-gh-pages.png";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const tags = ["EdTech", "Serious Games", "Game Design", "UX Research", "Gamification"];
+const developers = [
+  "Oscar Rojas Gaete",
+  "Sebastián Jeria López",
+  "Benjamín Robles",
+  "Makarena Abarca Letelier",
+  "Veronica Rojas Duran",
+  "Silvana Roncagliolo de la Horra",
+];
+const stack = [
+  { name: "Unity", key: "unity", src: logoUnity.src },
+  { name: "C#", key: "csharp", src: logoCsharp.src },
+  { name: "GitHub Pages", key: "github_pages", src: logoGhPages.src },
+];
+
+// Titled lists share one shape: `<prefix>.list.N.{title,description}`.
+const item = (prefix: string, n: number) => ({
+  title: t(`${prefix}.${n}.title`),
+  description: t(`${prefix}.${n}.description`),
+});
+const list = (prefix: string, count: number) =>
+  Array.from({ length: count }, (_, i) => item(prefix, i + 1));
+---
+
+<CaseStudy
+  title={t('biolab.title')}
+  role={t('biolab.role')}
+  team={`${t('biolab.team_prefix')} Rojas Oscar, Jeria Sebastián, Robles Benjamín`}
+  tags={tags.map((k) => t(`biolab.tags.${k.toLowerCase().replace(/ /g, '_')}`))}
+  image={preview}
+  imageAlt={t('biolab.aside.img_alt')}
+  links={[{ href: "https://www.krr.cl/biolab-escape", label: t('biolab.aside.button1') }]}
+  people={{ title: t('biolab.aside.team_title'), names: developers }}
+  stack={{
+    title: t('biolab.aside.tech_stack_title'),
+    items: stack.map((s) => ({ name: t(`biolab.aside.tech_${s.key}`), src: s.src })),
+  }}
+  backHref={lang === 'en' ? '/en/' : '/'}
+  backLabel={lang === 'en' ? '← Back home' : '← Volver al inicio'}
+>
+  <section>
+    <h2>{t('biolab.overview.title')}</h2>
+    <p set:html={t('biolab.overview.p1')}></p>
+    <p set:html={t('biolab.overview.p2')}></p>
+  </section>
+
+  <section>
+    <h2>{t('biolab.challenge.title')}</h2>
+    <p set:html={t('biolab.challenge.p1')}></p>
+  </section>
+
+  <section>
+    <h2>{t('biolab.solution.title')}</h2>
+    <p set:html={t('biolab.solution.p1')}></p>
+    <ul>
+      {list('biolab.solution.list', 4).map((i) => (
+        <li><strong>{i.title}</strong> <span set:html={i.description}></span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t('biolab.deep_dive.title')}</h2>
+    <p set:html={t('biolab.deep_dive.p1')}></p>
+    <ol>
+      {list('biolab.deep_dive.list', 3).map((i) => (
+        <li><strong>{i.title}</strong> <span set:html={i.description}></span></li>
+      ))}
+    </ol>
+  </section>
+
+  <section>
+    <h2>{t('biolab.ux_research.title')}</h2>
+    <p set:html={t('biolab.ux_research.p1')}></p>
+    <ul>
+      {list('biolab.ux_research.list', 2).map((i) => (
+        <li><strong>{i.title}</strong> <span set:html={i.description}></span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t('biolab.key_results.title')}</h2>
+    <p set:html={t('biolab.key_results.p1')}></p>
+    <ul>
+      <li><strong>{t('biolab.key_results.list.1.title')}</strong> <span set:html={t('biolab.key_results.list.1.description')}></span></li>
+      <li>
+        <strong>{t('biolab.key_results.list.2.title')}</strong>
+        <ul>
+          {list('biolab.key_results.list.2.sublist', 2).map((i) => (
+            <li><em set:html={i.title}></em> <span set:html={i.description}></span></li>
+          ))}
+        </ul>
+      </li>
+      <li><strong>{t('biolab.key_results.list.3.title')}</strong> <span set:html={t('biolab.key_results.list.3.description')}></span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t('biolab.challenges.title')}</h2>
+    {[1, 2, 3].map((n) => (
+      <p><strong>{t(`biolab.challenges.p${n}.title`)}</strong> <span set:html={t(`biolab.challenges.p${n}.description`)}></span></p>
+    ))}
+  </section>
+
+  <section>
+    <h2>{t('biolab.future_iterations.title')}</h2>
+    <ul>
+      {list('biolab.future_iterations.list', 4).map((i) => (
+        <li><strong>{i.title}</strong> <span set:html={i.description}></span></li>
+      ))}
+    </ul>
+  </section>
+</CaseStudy>
