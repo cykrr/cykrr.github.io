@@ -2,6 +2,7 @@
 import CaseStudy from "@/layouts/CaseStudy.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import shot from "@/assets/previews/krrflow.png";
+import CdDisc from "@/components/CdDisc.jsx";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -19,6 +20,11 @@ const eng = ['cache', 'decode', 'pool', 'audio', 'pace', 'look', 'profile'] as c
   backLabel={t('krrflow.back')}
 >
   <p>{t('krrflow.lede')}</p>
+
+  <figure>
+    <CdDisc client:visible label={t('krrflow.cd.label')} />
+    <figcaption>{t('krrflow.cd.caption')}</figcaption>
+  </figure>
 
   <section>
     <h2>{t('krrflow.idea.title')}</h2>

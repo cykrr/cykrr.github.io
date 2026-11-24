@@ -5,6 +5,8 @@ export const krrflowTranslations = {
     'krrflow.lede': 'Un reproductor local que reemplaza la lista de archivos por un carrusel estilo Cover Flow sobre un piso reflectante. Álbumes ordenados como discos en un estante, por artista o por década, y un HUD pensado para leerse desde tres metros.',
     'krrflow.alt': 'krrflow mostrando un carrusel de portadas con Random Access Memories al centro, un CD asomando a la derecha y el reproductor abajo',
     'krrflow.status': 'Código privado por ahora. Desarrollo activo desde fines de octubre de 2026.',
+    'krrflow.cd.label': 'CD procedural de krrflow girando: zonas metálicas, difracción radial y reflejos de estudio',
+    'krrflow.cd.caption': 'El disco es el shader del CD de la app, portado de WGSL a GLSL y corriendo en WebGL. Mueve el puntero para inclinarlo.',
 
     'krrflow.idea.title': 'la idea',
     'krrflow.idea.p1': 'Escuchar música en un PC conectado al televisor suele significar un reproductor de escritorio con botones diminutos. krrflow parte al revés: el álbum central <strong>es</strong> el disco. Al darle play se expulsa a la tornamesa, gira, y el progreso, la lista de pistas y el transporte se controlan con teclado, rueda del mouse o gamepad.',
@@ -51,6 +53,8 @@ export const krrflowTranslations = {
     'krrflow.lede': 'A local music player that swaps the file list for a Cover Flow-style carousel on a reflective floor. Albums are arranged like records in a rack, by artist or by decade, with a HUD built to be read from ten feet away.',
     'krrflow.alt': 'krrflow showing a carousel of album covers with Random Access Memories in the centre, a CD peeking out on the right and the player below',
     'krrflow.status': 'Private code for now. Under active development since late October 2026.',
+    'krrflow.cd.label': 'krrflow procedural CD spinning: metallic zones, radial diffraction and studio reflections',
+    'krrflow.cd.caption': 'The disc is the app\'s CD shader, ported from WGSL to GLSL and running in WebGL. Move the pointer to tilt it.',
 
     'krrflow.idea.title': 'the idea',
     'krrflow.idea.p1': 'Playing music on a PC wired to the TV usually means a desktop player with tiny buttons. krrflow starts from the other end: the centred album <strong>is</strong> the disc. Press play and it ejects onto the turntable and spins, while progress, the track list and transport work from the keyboard, the mouse wheel or a gamepad.',
