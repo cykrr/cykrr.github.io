@@ -119,6 +119,63 @@ a:hover { color: var(--accent-alt); text-decoration: underline; text-underline-o
 .button:hover { border-color: var(--accent-dim); text-decoration: none; }
 .button-primary { border-color: var(--accent-dim); color: var(--accent); }
 
+/* ---------- proof strip ---------- */
+.proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.25rem;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-dim);
+  font-size: .8rem;
+}
+.proof li::before { content: "✓ "; color: var(--accent); }
+
+/* ---------- services ---------- */
+.services { margin: 0; }
+.services > div { padding: .85rem 0 .85rem 1rem; border-left: 1px solid var(--border); }
+.services > div:hover { border-left-color: var(--accent-dim); }
+.services dt { color: var(--text-strong); font-weight: 600; }
+.services dd { margin: .15rem 0 0; color: var(--text-dim); font-size: .9rem; }
+
+/* ---------- process ---------- */
+.process { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.process li {
+  position: relative;
+  padding: .7rem 0 .7rem 2.2rem;
+  border-left: 1px solid var(--border);
+  counter-increment: step;
+}
+.process li:hover { border-left-color: var(--accent-dim); }
+.process li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: .55rem;
+  top: .8rem;
+  color: var(--accent-dim);
+  font-size: .75rem;
+}
+.process .name { display: block; color: var(--text-strong); font-weight: 600; }
+.process .blurb { display: block; margin-top: .15rem; color: var(--text-dim); font-size: .9rem; }
+
+/* ---------- closing call to action ---------- */
+.cta {
+  margin: 3rem 0 0;
+  padding: 1.35rem 1.5rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  background: var(--bg-soft);
+}
+.cta h2 {
+  margin: 0 0 .5rem;
+  color: var(--text-strong);
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+.cta p { max-width: 40rem; }
+.cta .button { margin-top: .25rem; }
+
 .featured-work {
   margin: 0 0 3rem;
   padding: 1.15rem 1.25rem 1.2rem;
@@ -136,6 +193,34 @@ a:hover { color: var(--accent-alt); text-decoration: underline; text-underline-o
 .featured-work p { max-width: 40rem; }
 .featured-link { font-size: .88rem; }
 
+/* product flow inside the featured case */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.flow li {
+  position: relative;
+  padding-top: .65rem;
+  border-top: 1px solid var(--border);
+}
+.flow-num {
+  display: block;
+  margin-bottom: .25rem;
+  color: var(--accent);
+  font-size: .68rem;
+  letter-spacing: .14em;
+}
+.flow .name { display: block; color: var(--text-strong); font-weight: 600; font-size: .9rem; }
+.flow .blurb { display: block; margin-top: .15rem; color: var(--text-dim); font-size: .78rem; line-height: 1.5; }
+@media (max-width: 640px) {
+  .flow { grid-template-columns: 1fr; gap: .9rem; }
+  .flow li { padding: 0 0 0 .9rem; border-top: 0; border-left: 1px solid var(--border); }
+}
+
 /* ---------- sections ---------- */
 .h-section {
   margin: 2.5rem 0 1rem;
@@ -149,12 +234,16 @@ a:hover { color: var(--accent-alt); text-decoration: underline; text-underline-o
 }
 .h-section::before { content: "# "; color: var(--accent-dim); }
 section:first-of-type .h-section { margin-top: 0; }
-
-/* ---------- services ---------- */
-.svc { border-top: 1px solid var(--border); }
-.svc > div { padding: .85rem 0; border-bottom: 1px solid var(--border); }
-.svc dt { font-weight: 600; color: var(--text-strong); }
-.svc dd { margin: .15rem 0 0; color: var(--text-dim); font-size: .9rem; }
+/* Standalone index pages use the same block as a real page title. */
+h1.h-section {
+  margin-top: 0;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  text-transform: none;
+  color: var(--text-strong);
+}
+h1.h-section::before { content: none; }
 
 /* ---------- project list ---------- */
 .h-group {
@@ -194,6 +283,9 @@ section:first-of-type .h-section { margin-top: 0; }
   padding-top: 1.25rem;
   border-top: 1px solid var(--border);
 }
+.footer-links { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 0 0 1rem; font-size: .82rem; }
+.footer-links a { color: var(--text); }
+.footer-links a:hover { color: var(--accent); }
 .badges { display: flex; flex-wrap: wrap; gap: .4rem; opacity: .55; transition: opacity .2s; }
 .badges:hover { opacity: 1; }
 .badges img { display: block; height: 31px; width: auto; }
@@ -225,6 +317,16 @@ section:first-of-type .h-section { margin-top: 0; }
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0; padding: 0; }
 .tags li { padding: .1rem .55rem; border: 1px solid var(--border); color: var(--text-dim); font-size: .75rem; }
 .case-hero { display: block; width: 100%; height: auto; border: 1px solid var(--border); margin-bottom: 1rem; }
+.case-hero-wide {
+  width: min(1100px, calc(100vw - 2.5rem));
+  max-width: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 900px) {
+  .case-hero-wide { width: 100%; left: 0; transform: none; }
+}
 .case-links { margin-bottom: 1.5rem; }
 .case section { margin-top: 2.25rem; }
 .case h2 {
@@ -250,7 +352,12 @@ section:first-of-type .h-section { margin-top: 0; }
 .case figure img, .case .shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); }
 .case figcaption { margin-top: .4rem; color: var(--text-dim); font-size: .8rem; text-align: center; font-style: italic; }
 .case .publication { color: var(--text-dim); font-size: .85rem; border-left: 2px solid var(--border); padding-left: .85rem; }
-.case .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .75rem; margin: 1.25rem 0; }
+.case .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin: 1.25rem 0; }
+@media (max-width: 640px) {
+  .case .shots { grid-template-columns: 1fr; }
+}
+.case .shots figure { margin: 0; }
+.case .shots figcaption { font-size: .72rem; line-height: 1.4; }
 
 /* inline WebGL CD (components/CdDisc.jsx) */
 .cd-disc {

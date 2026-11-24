@@ -1,14 +1,15 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import { Image } from "astro:assets";
 import Portfolio from './Portfolio.astro';
-import krrflowShot from "@/assets/previews/krrflow.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const krrflowPath = lang === 'en' ? '/en/portfolio/krrflow' : '/portfolio/krrflow';
+const inspectorPath = lang === 'en' ? '/en/portfolio/inspector-ia' : '/portfolio/inspector-ia';
 
-const doing = ['speech', 'product', 'systems', 'ai'] as const;
+const proofs = ['one', 'two', 'three'] as const;
+const flow = ['capture', 'analysis', 'review', 'procore'] as const;
+const services = ['terrain', 'docs', 'commerce'] as const;
+const steps = ['step1', 'step2', 'step3', 'step4'] as const;
 ---
 
 <section class="hero" aria-labelledby="intro-title">
@@ -16,17 +17,54 @@ const doing = ['speech', 'product', 'systems', 'ai'] as const;
   <h1 id="intro-title">{t('welcome.hero.title')}</h1>
   <p class="hero-copy">{t('welcome.hero.description')}</p>
   <div class="hero-actions">
-    <a class="button button-primary" href="#krrflow">{t('welcome.hero.primary')}</a>
+    <a class="button button-primary" href={inspectorPath}>{t('welcome.hero.primary')}</a>
     <a class="button" href="mailto:me@krr.cl">{t('welcome.hero.secondary')}</a>
   </div>
+  <ul class="proof">
+    {proofs.map((k) => <li>{t(`welcome.proof.${k}`)}</li>)}
+  </ul>
 </section>
 
-<section id="krrflow" class="featured-work" aria-labelledby="krrflow-title">
+<section class="featured-work" aria-labelledby="featured-title">
   <p class="eyebrow">{t('welcome.featured.eyebrow')}</p>
-  <h2 id="krrflow-title">{t('welcome.featured.title')}</h2>
+  <h2 id="featured-title">{t('welcome.featured.title')}</h2>
   <p>{t('welcome.featured.description')}</p>
-  <a class="featured-link" href={krrflowPath}>{t('welcome.featured.link')}</a>
-  <Image src={krrflowShot} width={1200} alt={t('welcome.featured.alt')} loading="lazy" style="width:100%;height:auto;margin-top:1rem;border:1px solid var(--border);" />
+  <a class="featured-link" href={inspectorPath}>{t('welcome.featured.link')}</a>
+  <ol class="flow">
+    {flow.map((k, i) => (
+      <li>
+        <span class="flow-num">{String(i + 1).padStart(2, '0')}</span>
+        <span class="name">{t(`welcome.flow.${k}.title`)}</span>
+        <span class="blurb">{t(`welcome.flow.${k}.text`)}</span>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<section>
+  <h2 class="h-section">{t('welcome.services.title')}</h2>
+  <dl class="services">
+    {services.map((k) => (
+      <div>
+        <dt>{t(`welcome.services.${k}.title`)}</dt>
+        <dd>{t(`welcome.services.${k}.description`)}</dd>
+      </div>
+    ))}
+  </dl>
+</section>
+
+<Portfolio />
+
+<section>
+  <h2 class="h-section">{t('welcome.process.title')}</h2>
+  <ol class="process">
+    {steps.map((k) => (
+      <li>
+        <span class="name">{t(`welcome.process.${k}.title`)}</span>
+        <span class="blurb">{t(`welcome.process.${k}.description`)}</span>
+      </li>
+    ))}
+  </ol>
 </section>
 
 <section>
@@ -37,20 +75,12 @@ const doing = ['speech', 'product', 'systems', 'ai'] as const;
 </section>
 
 <section>
-  <h2 class="h-section">{t('welcome.doing.title')}</h2>
-  <ul class="projects">
-    {doing.map((k) => (
-      <li>
-        <span class="name">{t(`welcome.doing.${k}.title`)}</span>
-        <span class="blurb">{t(`welcome.doing.${k}.description`)}</span>
-      </li>
-    ))}
-  </ul>
-</section>
-
-<Portfolio />
-
-<section>
   <h2 class="h-section">{t('welcome.outside.title')}</h2>
   <p>{t('welcome.outside.text')}</p>
+</section>
+
+<section class="cta" aria-labelledby="cta-title">
+  <h2 id="cta-title">{t('welcome.cta.title')}</h2>
+  <p>{t('welcome.cta.text')}</p>
+  <a class="button button-primary" href="mailto:me@krr.cl">{t('welcome.cta.button')}</a>
 </section>

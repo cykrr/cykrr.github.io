@@ -1,16 +1,45 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { defaultLang } from "../i18n/ui";
 import NavBar from "@/components/NavBar.astro";
 import "@/styles/global.css";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+const localised = (path: string) => (lang === defaultLang ? path : `/${lang}${path}`);
+
 const { title, description } = Astro.props;
 const pageTitle = title ? `${title} — ${t('site.title')}` : t('site.title');
 const pageDesc = description ?? t('site.description');
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/img/og.png', Astro.site);
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Benjamin Robles',
+  url: 'https://krr.cl',
+  email: 'me@krr.cl',
+  jobTitle: 'Software engineer',
+};
+const professionalService = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Benjamin Robles',
+  url: 'https://krr.cl',
+  email: 'me@krr.cl',
+  areaServed: ['Viña del Mar', 'Valparaíso', 'Chile'],
+  knowsAbout: [
+    'software a la medida',
+    'inspección de obra',
+    'automatización documental',
+    'Webpay',
+    'Procore',
+    'IA aplicada',
+  ],
+};
+const jsonLd = JSON.stringify([person, professionalService]).replace(/</g, '\\u003c');
 ---
 
 <!doctype html>
@@ -38,6 +67,8 @@ const ogImage = new URL('/img/og.png', Astro.site);
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={pageDesc} />
 		<meta name="twitter:image" content={ogImage} />
+
+		<script type="application/ld+json" set:html={jsonLd} />
 	</head>
 	<body>
 		<NavBar />
@@ -47,6 +78,12 @@ const ogImage = new URL('/img/og.png', Astro.site);
 		</main>
 
 		<footer class="site-footer">
+			<nav class="footer-links" aria-label="Contact">
+				<a href="mailto:me@krr.cl">{t('nav.email')}</a>
+				<a href="https://github.com/cykrr">{t('nav.github')}</a>
+				<a href="https://status.krr.cl/">{t('nav.status')}</a>
+				<a href={localised("/zen")}>{t('nav.zen')}</a>
+			</nav>
 			<div class="badges">
 				<a href="https://astro.build"><img src="/img/badges/astro.webp" alt="Built with Astro" title="Astro" /></a>
 				<a href="https://archlinux.org"><img src="/img/badges/archlinux.png" alt="archlinux btw" title="ArchLinux btw" /></a>

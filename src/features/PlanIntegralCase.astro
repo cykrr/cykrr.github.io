@@ -1,0 +1,68 @@
+---
+import CaseStudy from "@/layouts/CaseStudy.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const flow = ['intake', 'validation', 'context', 'generation', 'review', 'output'] as const;
+const guards = ['legal', 'spec', 'gate', 'dedupe', 'cache', 'logs', 'template'] as const;
+const tags = ['PHP 8.4', 'Supabase', 'FastAPI', 'Gemini', 'Google Docs'];
+---
+
+<CaseStudy
+  title={t('plan_integral.title')}
+  role={t('plan_integral.eyebrow')}
+  team={t('plan_integral.status')}
+  tags={tags}
+  links={[{ href: 'mailto:me@krr.cl', label: t('plan_integral.cta') }]}
+  backHref={lang === 'en' ? '/en/' : '/'}
+  backLabel={t('plan_integral.back')}
+>
+  <p>{t('plan_integral.lede')}</p>
+
+  <section>
+    <h2>{t('plan_integral.problem.title')}</h2>
+    <p>{t('plan_integral.problem.p1')}</p>
+    <p>{t('plan_integral.problem.p2')}</p>
+  </section>
+
+  <section>
+    <h2>{t('plan_integral.flow.title')}</h2>
+    <p>{t('plan_integral.flow.intro')}</p>
+    <ol>
+      {flow.map((k) => (
+        <li>
+          <strong>{t(`plan_integral.flow.${k}.title`)}</strong>{' '}
+          {t(`plan_integral.flow.${k}.text`)}
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section>
+    <h2>{t('plan_integral.guards.title')}</h2>
+    <p>{t('plan_integral.guards.intro')}</p>
+    <ul class="projects">
+      {guards.map((k) => (
+        <li>
+          <span class="name">{t(`plan_integral.guards.${k}.title`)}</span>
+          <span class="blurb" set:html={t(`plan_integral.guards.${k}.text`)}></span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t('plan_integral.result.title')}</h2>
+    <p>{t('plan_integral.result.p1')}</p>
+    <p>{t('plan_integral.result.p2')}</p>
+    <p>{t('plan_integral.result.p3')}</p>
+  </section>
+
+  <section>
+    <h2>{t('plan_integral.build.title')}</h2>
+    <p>{t('plan_integral.build.p1')}</p>
+    <p>{t('plan_integral.build.p2')}</p>
+  </section>
+</CaseStudy>

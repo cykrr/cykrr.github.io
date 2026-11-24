@@ -6,6 +6,8 @@ import { biolabTranslations } from './translations/biolab';
 import { floreriaTranslations } from './translations/floreria';
 import { krrflowTranslations } from './translations/krrflow';
 import { haLiteTranslations } from './translations/ha_lite';
+import { inspectorIaTranslations } from './translations/inspector_ia';
+import { planIntegralTranslations } from './translations/plan_integral';
 
 export const languages = {
   es: 'Español',
@@ -24,6 +26,8 @@ export const ui = {
     ...floreriaTranslations.es,
     ...krrflowTranslations.es,
     ...haLiteTranslations.es,
+    ...inspectorIaTranslations.es,
+    ...planIntegralTranslations.es,
   },
   en: {
     ...navTranslations.en,
@@ -34,5 +38,7 @@ export const ui = {
     ...floreriaTranslations.en,
     ...krrflowTranslations.en,
     ...haLiteTranslations.en,
+    ...inspectorIaTranslations.en,
+    ...planIntegralTranslations.en,
   },
 } as const;

@@ -1,24 +1,40 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { defaultLang } from "../i18n/ui";
+
+interface Props {
+  /** Render the section heading as an H1 when this is a standalone page. */
+  page?: boolean;
+}
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const { page = false } = Astro.props;
+const Heading = page ? 'h1' : 'h2';
 
-const services = [
-  { name: "Voz-CL", href: "https://voz-cl.krr.cl", label: "voz-cl.krr.cl", notes: t('portfolio.table.vozcl.notes') },
-  { name: "Biolab Escape", href: "https://krr.cl/biolab-escape", label: "krr.cl/biolab-escape", notes: t('portfolio.table.biolab.notes') },
-];
+// Prefix internal paths for the active locale; the default locale lives at the root.
+const localised = (path: string) => (lang === defaultLang ? path : `/${lang}${path}`);
 
 // `href` links the title; `src` adds a trailing source link. Projects with
 // neither are private or client work and render as plain text.
 const groups = [
   {
-    heading: 'portfolio.group.current',
+    heading: 'portfolio.group.client',
+    items: [
+      { key: 'inspector_ia', href: '/portfolio/inspector-ia' },
+      { key: 'plan_integral', href: '/portfolio/plan-integral' },
+      { key: 'floreria_coral', href: '/portfolio/floreria-coral' },
+    ],
+  },
+  {
+    heading: 'portfolio.group.lab',
     items: [
       { key: 'krrflow', href: '/portfolio/krrflow' },
       { key: 'ha_lite', href: '/portfolio/ha-lite', src: 'https://github.com/cykrr/ha-lite' },
-      { key: 'inspector_ia' },
-      { key: 'wincontrol', src: 'https://github.com/cykrr/macro-daemon' },
+      { key: 'ioscpy', src: 'https://github.com/cykrr/ioscpy' },
+      { key: 'mdserve', href: 'https://notes.krr.cl/mdserve/', src: 'https://github.com/cykrr/mdserve' },
+      { key: 'kindle_dashboard', src: 'https://github.com/cykrr/kindle-dashboard' },
+      { key: 'cc_systems', href: '/graph/' },
     ],
   },
   {
@@ -28,18 +44,8 @@ const groups = [
     ],
   },
   {
-    heading: 'portfolio.group.oss',
+    heading: 'portfolio.group.previous',
     items: [
-      { key: 'ioscpy', src: 'https://github.com/cykrr/ioscpy' },
-      { key: 'mdserve', href: 'https://notes.krr.cl/mdserve/', src: 'https://github.com/cykrr/mdserve' },
-      { key: 'kindle_dashboard', src: 'https://github.com/cykrr/kindle-dashboard' },
-      { key: 'cc_systems', href: '/graph/' },
-    ],
-  },
-  {
-    heading: 'portfolio.group.client',
-    items: [
-      { key: 'floreria_coral', href: '/portfolio/floreria-coral' },
       { key: 'planetariumvr', href: '/portfolio/planetarium-vr', src: 'https://github.com/cykrr/planetariumvr' },
       { key: 'biolab_escape', href: '/portfolio/biolab-escape' },
     ],
@@ -48,21 +54,7 @@ const groups = [
 ---
 
 <section>
-  <h2 class="h-section">{t('portfolio.infra.title')}</h2>
-  <p set:html={t('portfolio.infra.description')}></p>
-
-  <dl class="svc">
-    {services.map((s) => (
-      <div>
-        <dt>{s.name} — <a href={s.href}>{s.label}</a></dt>
-        <dd set:html={s.notes}></dd>
-      </div>
-    ))}
-  </dl>
-</section>
-
-<section>
-  <h2 id="projects" class="h-section">{t('portfolio.software.title')}</h2>
+  <Heading id="projects" class="h-section">{t('portfolio.software.title')}</Heading>
   <p set:html={t('portfolio.software.description')}></p>
 
   {groups.map((g) => (
@@ -72,7 +64,7 @@ const groups = [
         {g.items.map((p) => (
           <li>
             {'href' in p && p.href
-              ? <a class="name" href={p.href}>{t(`portfolio.software.${p.key}.title`)}</a>
+              ? <a class="name" href={p.href.startsWith('/portfolio') ? localised(p.href) : p.href}>{t(`portfolio.software.${p.key}.title`)}</a>
               : <span class="name">{t(`portfolio.software.${p.key}.title`)}</span>}
             {'src' in p && p.src && <a class="src" href={p.src}>(GitHub)</a>}
             <span class="blurb" set:html={t(`portfolio.software.${p.key}.description`)}></span>
@@ -81,10 +73,4 @@ const groups = [
       </ul>
     </>
   ))}
-
-  <p class="note">
-    <b>{t('portfolio.warning.title')}</b>
-    <span set:html={t('portfolio.warning.description')}></span>
-    <a href="https://status.krr.cl/">{t('portfolio.warning.status')}</a>.
-  </p>
 </section>

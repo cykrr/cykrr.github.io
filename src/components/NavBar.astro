@@ -18,12 +18,11 @@ const localised = (path: string) =>
 
 <header>
   <div class="masthead">
-    <a class="brand" href={localised("/")}>{t('site.title')}</a>
+    <a class="brand" href={localised("/")}>{t('site.brand')}</a>
     <nav class="menu">
-      <a href={localised("/zen")}>{t('nav.zen')}</a>
-      <a href="https://status.krr.cl/status/krr-cl">{t('nav.status')}</a>
-      <a href="#projects">{t('nav.projects')}</a>
+      <a href={isHome ? '#projects' : localised("/portfolio")}>{t('nav.cases')}</a>
       <a href={localised("/blog")}>{t('nav.blog')}</a>
+      <a href="mailto:me@krr.cl">{t('nav.contact')}</a>
     </nav>
   </div>
 

@@ -10,7 +10,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://krr.cl',
-  integrations: [starlight({"title": "krr.cl"}), react()],
+  integrations: [starlight({ title: "krr.cl", disable404Route: true }), react()],
   i18n: {
     defaultLocale: "es", // Set Spanish as your default
     locales: ["es", "en"], // The languages you support

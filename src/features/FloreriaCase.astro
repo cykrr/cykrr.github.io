@@ -7,7 +7,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const site = "https://floreriacoral.cl";
-const tags = ["ecommerce", "local_business", "wordpress", "woocommerce", "webpay", "ai-ready"];
+const tags = ["ecommerce", "local_business", "wordpress", "woocommerce", "webpay", "operation"];
+const built = [1, 2, 3, 4, 5] as const;
 ---
 
 <CaseStudy
@@ -22,39 +23,41 @@ const tags = ["ecommerce", "local_business", "wordpress", "woocommerce", "webpay
   backHref={lang === 'en' ? '/en/' : '/'}
   backLabel={lang === 'en' ? '← Back home' : '← Volver al inicio'}
 >
+  <p set:html={t('floreria.lede')}></p>
+
   <section>
-    <h2>{t('floreria.overview.title')}</h2>
-    <p set:html={t('floreria.overview.p1')}></p>
-    <p set:html={t('floreria.overview.p2')}></p>
+    <h2>{t('floreria.problem.title')}</h2>
+    <p set:html={t('floreria.problem.p1')}></p>
+    <p set:html={t('floreria.problem.p2')}></p>
   </section>
 
   <section>
-    <h2>{t('floreria.features.title')}</h2>
-    {[1, 2, 3].map((n) => (
+    <h2>{t('floreria.built.title')}</h2>
+    <p set:html={t('floreria.built.intro')}></p>
+    {built.map((n) => (
       <>
-        <h3>{t(`floreria.features.${n}.title`)}</h3>
-        <p set:html={t(`floreria.features.${n}.description`)}></p>
+        <h3>{t(`floreria.built.${n}.title`)}</h3>
+        <p set:html={t(`floreria.built.${n}.description`)}></p>
       </>
     ))}
   </section>
 
   <section>
-    <h2>{t('floreria.challenge.title')}</h2>
-    <p set:html={t('floreria.challenge.p1')}></p>
+    <h2>{t('floreria.change.title')}</h2>
+    <p set:html={t('floreria.change.p1')}></p>
+    <p set:html={t('floreria.change.p2')}></p>
   </section>
 
-  <section>
-    <h2>{t('floreria.takeaways.title')}</h2>
-    <p set:html={t('floreria.takeaways.p1')}></p>
-  </section>
+  <!--
+    TODO (contenido real): cuando exista un dato verificado del cliente, agregar
+    aquí una métrica real (por ejemplo, pedidos por mes, conversión o tiempo
+    ahorrado) y una cita de una línea de la dueña sobre el cambio. No publicar
+    cifras sin verificar.
+  -->
 
   <section>
-    <h2>{t('floreria.resources.title')}</h2>
-    <ul class="resources">
-      <li>
-        <a href={site}>{t('floreria.resources.site.title')}</a>
-        <span>{t('floreria.resources.site.description')}</span>
-      </li>
-    </ul>
+    <h2>{t('floreria.stack.title')}</h2>
+    <p set:html={t('floreria.stack.p1')}></p>
+    <p set:html={t('floreria.stack.p2')}></p>
   </section>
 </CaseStudy>

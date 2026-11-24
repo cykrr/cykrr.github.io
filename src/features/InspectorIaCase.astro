@@ -1,0 +1,106 @@
+<!-- PENDIENTE: aprobación escrita de Inpromec para publicar el nombre del cliente y las métricas del piloto. -->
+---
+import { Image } from "astro:assets";
+import CaseStudy from "@/layouts/CaseStudy.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import captureShot from "@/assets/previews/inspector-ia-capture.png";
+import findingsShot from "@/assets/previews/inspector-ia-findings.png";
+import reportShot from "@/assets/previews/inspector-ia-report.png";
+import procoreShot from "@/assets/previews/inspector-ia-procore.png";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const steps = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'] as const;
+const metrics = ['m1', 'm2', 'm3', 'm4'] as const;
+const shots = [
+  { key: 'capture', img: captureShot },
+  { key: 'findings', img: findingsShot },
+  { key: 'report', img: reportShot },
+  { key: 'procore', img: procoreShot },
+] as const;
+const tags = ['Next.js', 'Supabase', 'Gemini', 'Procore', 'PWA'];
+---
+
+<CaseStudy
+  title={t('inspector_ia.title')}
+  role={t('inspector_ia.eyebrow')}
+  team={t('inspector_ia.status')}
+  tags={tags}
+  links={[{ href: 'mailto:me@krr.cl', label: t('inspector_ia.contact') }]}
+  backHref={lang === 'en' ? '/en/' : '/'}
+  backLabel={t('inspector_ia.back')}
+>
+  <p>{t('inspector_ia.lede')}</p>
+
+  <section>
+    <h2>{t('inspector_ia.problem.title')}</h2>
+    <p>{t('inspector_ia.problem.p1')}</p>
+    <p>{t('inspector_ia.problem.p2')}</p>
+  </section>
+
+  <section>
+    <h2>{t('inspector_ia.what.title')}</h2>
+    <p>{t('inspector_ia.what.p1')}</p>
+    <ol>
+      {steps.map((k) => <li>{t(`inspector_ia.what.${k}`)}</li>)}
+    </ol>
+    <p>{t('inspector_ia.what.roles')}</p>
+  </section>
+
+  <section>
+    <h2>{t('inspector_ia.product.title')}</h2>
+    <p>{t('inspector_ia.product.intro')}</p>
+    <div class="shots">
+      {shots.map((s) => (
+        <figure>
+          <Image
+            src={s.img}
+            width={480}
+            alt={t(`inspector_ia.product.${s.key}.alt`)}
+            loading="lazy"
+          />
+          <figcaption>{t(`inspector_ia.product.${s.key}.caption`)}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <p class="note">{t('inspector_ia.product.note')}</p>
+  </section>
+
+  <section>
+    <h2>{t('inspector_ia.hard.title')}</h2>
+    <p>{t('inspector_ia.hard.p1')}</p>
+
+    <h3>{t('inspector_ia.hard.trust.title')}</h3>
+    <p>{t('inspector_ia.hard.trust.text')}</p>
+
+    <h3>{t('inspector_ia.hard.calibration.title')}</h3>
+    <p set:html={t('inspector_ia.hard.calibration.text')}></p>
+
+    <h3>{t('inspector_ia.hard.decide.title')}</h3>
+    <p>{t('inspector_ia.hard.decide.text')}</p>
+  </section>
+
+  <section>
+    <h2>{t('inspector_ia.results.title')}</h2>
+    <p>{t('inspector_ia.results.p1')}</p>
+    <ul>
+      {metrics.map((k) => <li>{t(`inspector_ia.results.${k}`)}</li>)}
+    </ul>
+    <p>{t('inspector_ia.results.p2')}</p>
+  </section>
+
+  <section>
+    <h2>{t('inspector_ia.next.title')}</h2>
+    <p set:html={t('inspector_ia.next.p1')}></p>
+    <h3>{t('inspector_ia.next.honest.title')}</h3>
+    <p>{t('inspector_ia.next.honest.text')}</p>
+  </section>
+
+  <section>
+    <h2>{t('inspector_ia.shape.title')}</h2>
+    <p>{t('inspector_ia.shape.p1')}</p>
+    <p>{t('inspector_ia.shape.p2')}</p>
+    <p set:html={t('inspector_ia.shape.p3')}></p>
+  </section>
+</CaseStudy>
