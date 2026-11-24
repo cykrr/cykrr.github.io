@@ -3,9 +3,9 @@ export const inspectorIaTranslations = {
     'inspector_ia.eyebrow': 'Caso de estudio · Next.js · Supabase · Gemini · Procore',
     'inspector_ia.title': 'Inspector IA: la IA propone, la persona decide.',
     'inspector_ia.alt': 'Diagrama del flujo de Inspector IA: captura en terreno, análisis con IA, revisión humana y exportación a Procore',
-    'inspector_ia.status': 'Piloto con Inpromec · 7 inspectores',
+    'inspector_ia.status': 'Piloto con una constructora chilena · 7 inspectores',
     'inspector_ia.contact': 'Escríbeme',
-    'inspector_ia.lede': 'Los inspectores técnicos de obra (ITO) recorren la obra con el teléfono, sacan fotos y después las transcriben a Procore. Inspector IA mueve esa decisión al momento en que se toma la foto: la captura se clasifica, Gemini propone hallazgos y una persona los aprueba, los corrige o los descarta antes de que lleguen a Procore como punch item u observación. Está en marcha blanca con Inpromec, una constructora chilena. No reemplaza al inspector: le quita el trabajo de retipear y deja registro de quién decidió qué.',
+    'inspector_ia.lede': 'Los inspectores técnicos de obra (ITO) recorren la obra con el teléfono, sacan fotos y después las transcriben a Procore. Inspector IA mueve esa decisión al momento en que se toma la foto: la captura se clasifica, Gemini propone hallazgos y una persona los aprueba, los corrige o los descarta antes de que lleguen a Procore como punch item u observación. Está en marcha blanca con una constructora chilena. No reemplaza al inspector: le quita el trabajo de retipear y deja registro de quién decidió qué.',
 
     'inspector_ia.problem.title': 'el problema',
     'inspector_ia.problem.p1': 'Una inspección produce decenas de fotos. Cada una tiene una intención: un terminado que hay que corregir, una partida en proceso que hay que observar, o un riesgo de seguridad. En la práctica esa intención vive en la cabeza del inspector, en un chat y en el carrete del teléfono hasta que alguien la escribe en Procore al final del día, con el detalle ya difuso.',
@@ -66,9 +66,9 @@ export const inspectorIaTranslations = {
     'inspector_ia.eyebrow': 'Case study · Next.js · Supabase · Gemini · Procore',
     'inspector_ia.title': 'Inspector IA: the AI proposes, the person decides.',
     'inspector_ia.alt': 'Diagram of the Inspector IA flow: capture on site, AI analysis, human review and export to Procore',
-    'inspector_ia.status': 'Pilot with Inpromec · 7 inspectors',
+    'inspector_ia.status': 'Pilot with a Chilean construction company · 7 inspectors',
     'inspector_ia.contact': 'Email me',
-    'inspector_ia.lede': 'Construction inspectors (ITOs) walk the site with a phone, take photos and later retype them into Procore. Inspector IA moves that decision to the moment the photo is taken: the capture is classified, Gemini proposes findings, and a person approves, corrects or discards them before they reach Procore as a punch item or observation. It is in a pilot (marcha blanca) with Inpromec, a Chilean construction company. It does not replace the inspector: it removes the retyping and records who decided what.',
+    'inspector_ia.lede': 'Construction inspectors (ITOs) walk the site with a phone, take photos and later retype them into Procore. Inspector IA moves that decision to the moment the photo is taken: the capture is classified, Gemini proposes findings, and a person approves, corrects or discards them before they reach Procore as a punch item or observation. It is in a pilot (marcha blanca) with a Chilean construction company. It does not replace the inspector: it removes the retyping and records who decided what.',
 
     'inspector_ia.problem.title': 'the problem',
     'inspector_ia.problem.p1': 'An inspection produces dozens of photos. Each one carries an intent: a finish that needs fixing, work in progress that needs watching, or a safety risk. In practice that intent lives in the inspector\'s head, in a chat and in the phone\'s camera roll until someone writes it into Procore at the end of the day, with the detail already blurred.',
