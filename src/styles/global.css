@@ -249,6 +249,7 @@ section:first-of-type .h-section { margin-top: 0; }
 .case figure { margin: 1.25rem 0; }
 .case figure img, .case .shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); }
 .case figcaption { margin-top: .4rem; color: var(--text-dim); font-size: .8rem; text-align: center; font-style: italic; }
+.case .publication { color: var(--text-dim); font-size: .85rem; border-left: 2px solid var(--border); padding-left: .85rem; }
 .case .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .75rem; margin: 1.25rem 0; }
 
 /* inline WebGL CD (components/CdDisc.jsx) */

@@ -40,7 +40,10 @@ const list = (prefix: string, count: number) =>
   tags={tags.map((k) => t(`biolab.tags.${k.toLowerCase().replace(/ /g, '_')}`))}
   image={preview}
   imageAlt={t('biolab.aside.img_alt')}
-  links={[{ href: "https://www.krr.cl/biolab-escape", label: t('biolab.aside.button1') }]}
+  links={[
+    { href: "https://www.krr.cl/biolab-escape", label: t('biolab.aside.button1') },
+    { href: "https://ieeexplore.ieee.org/document/11476589/", label: t('biolab.aside.button2') },
+  ]}
   people={{ title: t('biolab.aside.team_title'), names: developers }}
   stack={{
     title: t('biolab.aside.tech_stack_title'),
@@ -88,6 +91,7 @@ const list = (prefix: string, count: number) =>
         <li><strong>{i.title}</strong> <span set:html={i.description}></span></li>
       ))}
     </ul>
+    <p class="publication" set:html={t('biolab.ux_research.publication')}></p>
   </section>
 
   <section>
