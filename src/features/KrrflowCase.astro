@@ -5,7 +5,8 @@ import shot from "@/assets/previews/krrflow.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const eng = ['cache', 'decode', 'pool', 'audio', 'look', 'profile'] as const;
+const features = ['gpu', 'gapless', 'pace', 'tracks', 'pad', 'seek'] as const;
+const eng = ['cache', 'decode', 'pool', 'audio', 'pace', 'look', 'profile'] as const;
 ---
 
 <CaseStudy
@@ -23,6 +24,18 @@ const eng = ['cache', 'decode', 'pool', 'audio', 'look', 'profile'] as const;
     <h2>{t('krrflow.idea.title')}</h2>
     <p set:html={t('krrflow.idea.p1')}></p>
     <p set:html={t('krrflow.idea.p2')}></p>
+  </section>
+
+  <section>
+    <h2>{t('krrflow.features.title')}</h2>
+    <ul class="projects">
+      {features.map((k) => (
+        <li>
+          <span class="name">{t(`krrflow.features.${k}.title`)}</span>
+          <span class="blurb">{t(`krrflow.features.${k}.text`)}</span>
+        </li>
+      ))}
+    </ul>
   </section>
 
   <section>
