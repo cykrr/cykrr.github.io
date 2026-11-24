@@ -6,6 +6,7 @@ import krrflowShot from "@/assets/previews/krrflow.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const krrflowPath = lang === 'en' ? '/en/portfolio/krrflow' : '/portfolio/krrflow';
 
 const doing = ['speech', 'product', 'systems', 'ai'] as const;
 ---
@@ -24,6 +25,7 @@ const doing = ['speech', 'product', 'systems', 'ai'] as const;
   <p class="eyebrow">{t('welcome.featured.eyebrow')}</p>
   <h2 id="krrflow-title">{t('welcome.featured.title')}</h2>
   <p>{t('welcome.featured.description')}</p>
+  <a class="featured-link" href={krrflowPath}>{t('welcome.featured.link')}</a>
   <Image src={krrflowShot} width={1200} alt={t('welcome.featured.alt')} loading="lazy" style="width:100%;height:auto;margin-top:1rem;border:1px solid var(--border);" />
 </section>
 

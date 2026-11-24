@@ -4,6 +4,7 @@ import { portfolioTranslations } from './translations/portfolio';
 import { planetariumvrTranslations } from './translations/planetariumvr';
 import { biolabTranslations } from './translations/biolab';
 import { floreriaTranslations } from './translations/floreria';
+import { krrflowTranslations } from './translations/krrflow';
 
 export const languages = {
   es: 'Español',
@@ -20,6 +21,7 @@ export const ui = {
     ...planetariumvrTranslations.es,
     ...biolabTranslations.es,
     ...floreriaTranslations.es,
+    ...krrflowTranslations.es,
   },
   en: {
     ...navTranslations.en,
@@ -28,5 +30,6 @@ export const ui = {
     ...planetariumvrTranslations.en,
     ...biolabTranslations.en,
     ...floreriaTranslations.en,
+    ...krrflowTranslations.en,
   },
 } as const;
