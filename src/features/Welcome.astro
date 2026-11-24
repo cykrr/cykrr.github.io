@@ -1,10 +1,11 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { Image } from "astro:assets";
 import Portfolio from './Portfolio.astro';
+import krrflowShot from "@/assets/previews/krrflow.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const floreriaPath = lang === 'en' ? '/en/portfolio/floreria-coral' : '/portfolio/floreria-coral';
 
 const doing = ['speech', 'product', 'systems', 'ai'] as const;
 ---
@@ -14,16 +15,16 @@ const doing = ['speech', 'product', 'systems', 'ai'] as const;
   <h1 id="intro-title">{t('welcome.hero.title')}</h1>
   <p class="hero-copy">{t('welcome.hero.description')}</p>
   <div class="hero-actions">
-    <a class="button button-primary" href="#floreria-coral">{t('welcome.hero.primary')}</a>
+    <a class="button button-primary" href="#krrflow">{t('welcome.hero.primary')}</a>
     <a class="button" href="mailto:me@krr.cl">{t('welcome.hero.secondary')}</a>
   </div>
 </section>
 
-<section id="floreria-coral" class="featured-work" aria-labelledby="floreria-coral-title">
+<section id="krrflow" class="featured-work" aria-labelledby="krrflow-title">
   <p class="eyebrow">{t('welcome.featured.eyebrow')}</p>
-  <h2 id="floreria-coral-title">{t('welcome.featured.title')}</h2>
+  <h2 id="krrflow-title">{t('welcome.featured.title')}</h2>
   <p>{t('welcome.featured.description')}</p>
-  <a class="featured-link" href={floreriaPath}>{t('welcome.featured.link')}</a>
+  <Image src={krrflowShot} width={1200} alt={t('welcome.featured.alt')} loading="lazy" style="width:100%;height:auto;margin-top:1rem;border:1px solid var(--border);" />
 </section>
 
 <section>
