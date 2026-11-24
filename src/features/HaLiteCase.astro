@@ -1,0 +1,82 @@
+---
+import CaseStudy from "@/layouts/CaseStudy.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import shot from "@/assets/previews/ha-lite.png";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const features = ['sensors', 'lights', 'ui', 'api'] as const;
+const eng = ['discovery', 'sensors', 'state', 'honesty', 'security', 'lifecycle'] as const;
+const tags = ['Rust', 'MQTT', 'BLE', 'Homelab', 'GPL-2.0'];
+---
+
+<CaseStudy
+  title={t('ha_lite.title')}
+  role={t('ha_lite.eyebrow')}
+  team={t('ha_lite.status')}
+  tags={tags}
+  image={shot}
+  imageAlt={t('ha_lite.alt')}
+  links={[{ href: 'https://github.com/cykrr/ha-lite', label: t('ha_lite.repo') }]}
+  backHref={lang === 'en' ? '/en/' : '/'}
+  backLabel={t('ha_lite.back')}
+>
+  <p>{t('ha_lite.lede')}</p>
+
+  <section>
+    <h2>{t('ha_lite.problem.title')}</h2>
+    <p>{t('ha_lite.problem.p1')}</p>
+    <p>{t('ha_lite.problem.p2')}</p>
+  </section>
+
+  <section>
+    <h2>{t('ha_lite.constraint.title')}</h2>
+    <p>{t('ha_lite.constraint.p1')}</p>
+    <p>{t('ha_lite.constraint.p2')}</p>
+  </section>
+
+  <section>
+    <h2>{t('ha_lite.features.title')}</h2>
+    <ul class="projects">
+      {features.map((k) => (
+        <li>
+          <span class="name">{t(`ha_lite.features.${k}.title`)}</span>
+          <span class="blurb" set:html={t(`ha_lite.features.${k}.text`)}></span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t('ha_lite.eng.title')}</h2>
+    {eng.map((k) => (
+      <>
+        <h3>{t(`ha_lite.eng.${k}.title`)}</h3>
+        <p set:html={t(`ha_lite.eng.${k}.text`)}></p>
+      </>
+    ))}
+  </section>
+
+  <section>
+    <h2>{t('ha_lite.shape.title')}</h2>
+    <p set:html={t('ha_lite.shape.text')}></p>
+  </section>
+
+  <section>
+    <h2>{t('ha_lite.cost.title')}</h2>
+    <p>{t('ha_lite.cost.p1')}</p>
+    <p>{t('ha_lite.cost.p2')}</p>
+  </section>
+
+  <section>
+    <h2>{t('ha_lite.boundary.title')}</h2>
+    <p>{t('ha_lite.boundary.p1')}</p>
+  </section>
+
+  <section>
+    <h2>{t('ha_lite.use.title')}</h2>
+    <p>{t('ha_lite.use.p1')}</p>
+    <p>{t('ha_lite.use.p2')}</p>
+  </section>
+</CaseStudy>

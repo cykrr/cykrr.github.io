@@ -38,7 +38,7 @@ const { title, pageTitle, role, team, tags = [], image, imageAlt, links = [], pe
       )}
     </header>
 
-    <Image src={image} width={1200} alt={imageAlt} class="case-hero" />
+    <Image src={image} width={Math.min(1200, image.width)} alt={imageAlt} class="case-hero" />
 
     {links.length > 0 && (
       <div class="hero-actions case-links">
