@@ -7,8 +7,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const site = "https://floreriacoral.cl";
-const tags = ["ecommerce", "local_business", "wordpress", "woocommerce", "webpay", "operation"];
-const built = [1, 2, 3, 4, 5] as const;
+const tags = ["ecommerce", "rescue", "redesign", "woocommerce", "webpay", "logistics"];
+const built = [1, 2, 3, 4, 5, 6] as const;
 ---
 
 <CaseStudy
@@ -29,6 +29,7 @@ const built = [1, 2, 3, 4, 5] as const;
     <h2>{t('floreria.problem.title')}</h2>
     <p set:html={t('floreria.problem.p1')}></p>
     <p set:html={t('floreria.problem.p2')}></p>
+    <p set:html={t('floreria.problem.p3')}></p>
   </section>
 
   <section>
@@ -46,14 +47,8 @@ const built = [1, 2, 3, 4, 5] as const;
     <h2>{t('floreria.change.title')}</h2>
     <p set:html={t('floreria.change.p1')}></p>
     <p set:html={t('floreria.change.p2')}></p>
+    <p set:html={t('floreria.change.p3')}></p>
   </section>
-
-  <!--
-    TODO (contenido real): cuando exista un dato verificado del cliente, agregar
-    aquí una métrica real (por ejemplo, pedidos por mes, conversión o tiempo
-    ahorrado) y una cita de una línea de la dueña sobre el cambio. No publicar
-    cifras sin verificar.
-  -->
 
   <section>
     <h2>{t('floreria.stack.title')}</h2>

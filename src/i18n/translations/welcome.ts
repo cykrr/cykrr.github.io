@@ -31,7 +31,7 @@ export const welcomeTranslations = {
     'welcome.services.docs.title': 'Automatización documental:',
     'welcome.services.docs.description': 'Formulario → documento. Programas de integridad, informes y actas con plantillas, validación y registro de cada generación.',
     'welcome.services.commerce.title': 'Comercio y operación:',
-    'welcome.services.commerce.description': 'Catálogo → pedido pagado. Tiendas con Webpay, stock y despacho para negocios locales.',
+    'welcome.services.commerce.description': 'Catálogo → pedido pagado. Tiendas con Webpay, stock y despacho; también rescate de sitios lentos, hackeados o abandonados.',
 
     'welcome.process.title': 'cómo trabajo',
     'welcome.process.step1.title': 'Diagnóstico',
@@ -82,7 +82,7 @@ export const welcomeTranslations = {
     'welcome.services.docs.title': 'Document automation:',
     'welcome.services.docs.description': 'Form → document. Integrity programmes, reports and minutes with templates, validation and a record of every generated file.',
     'welcome.services.commerce.title': 'Commerce and operations:',
-    'welcome.services.commerce.description': 'Catalogue → paid order. Stores with Webpay, stock and shipping for local businesses.',
+    'welcome.services.commerce.description': 'Catalogue → paid order. Stores with Webpay, stock and shipping; also rescue work for slow, hacked or abandoned sites.',
 
     'welcome.process.title': 'how i work',
     'welcome.process.step1.title': 'Diagnosis',
