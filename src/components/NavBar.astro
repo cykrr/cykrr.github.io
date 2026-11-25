@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import { languages, defaultLang } from "../i18n/ui";
+import { BOOKING_URL } from "../consts";
 
 const { pathname } = Astro.url;
 
@@ -22,7 +23,7 @@ const localised = (path: string) =>
     <nav class="menu">
       <a href={isHome ? '#projects' : localised("/portfolio")}>{t('nav.cases')}</a>
       <a href={localised("/blog")}>{t('nav.blog')}</a>
-      <a href="mailto:me@krr.cl">{t('nav.contact')}</a>
+      <a href={BOOKING_URL}>{t('nav.contact')}</a>
     </nav>
   </div>
 

@@ -5,7 +5,8 @@ export const planIntegralTranslations = {
     'plan_integral.lede': 'Plan Integral convierte un Google Form en un Programa de Integridad bajo la Ley 21.595. El formulario reúne los datos y hasta cinco documentos; un cron los valida y los deja en Supabase con su carpeta de Drive. Desde el panel, un operador pide el borrador y recibe en menos de un minuto un documento de doce secciones, escrito con el giro y el tamaño reales de la empresa. Antes se armaba a mano en Word, cliente por cliente.',
     'plan_integral.alt': 'Diagrama del flujo: Google Form, validación y deduplicación, Supabase, panel de operador, IA redactora y Google Docs',
     'plan_integral.status': 'En producción · Documento legal revisado por una persona',
-    'plan_integral.cta': 'Escríbeme',
+    'plan_integral.cta': 'Agenda un diagnóstico',
+    'plan_integral.email': 'Escríbeme',
     'plan_integral.back': '← Volver al inicio',
 
     'plan_integral.problem.title': 'el problema',
@@ -59,7 +60,8 @@ export const planIntegralTranslations = {
     'plan_integral.lede': 'Plan Integral turns a Google Form into a Compliance Program under Chile\'s Ley 21.595. The form gathers the details and up to five documents; a cron job validates them and files them in Supabase with a Drive folder. From the dashboard, an operator requests the draft and gets a twelve-section document in under a minute, written around the company\'s actual industry and size. Before, it was assembled by hand in Word, client by client.',
     'plan_integral.alt': 'Flow diagram: Google Form, validation and deduplication, Supabase, operator dashboard, drafting AI and Google Docs',
     'plan_integral.status': 'In production · Legal document reviewed by a person',
-    'plan_integral.cta': 'Email me',
+    'plan_integral.cta': 'Book a diagnostic',
+    'plan_integral.email': 'Email me',
     'plan_integral.back': '← Back home',
 
     'plan_integral.problem.title': 'the problem',

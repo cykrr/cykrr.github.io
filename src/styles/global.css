@@ -175,6 +175,7 @@ a:hover { color: var(--accent-alt); text-decoration: underline; text-underline-o
 }
 .cta p { max-width: 40rem; }
 .cta .button { margin-top: .25rem; }
+.hero-note, .cta-note { margin: .7rem 0 0; color: var(--text-dim); font-size: .8rem; }
 
 .featured-work {
   margin: 0 0 3rem;

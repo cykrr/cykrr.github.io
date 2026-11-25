@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import CaseStudy from "@/layouts/CaseStudy.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { BOOKING_URL } from "../consts";
 import captureShot from "@/assets/previews/inspector-ia-capture.png";
 import findingsShot from "@/assets/previews/inspector-ia-findings.png";
 import reportShot from "@/assets/previews/inspector-ia-report.png";
@@ -26,7 +27,10 @@ const tags = ['Next.js', 'Supabase', 'Gemini', 'Procore', 'PWA'];
   role={t('inspector_ia.eyebrow')}
   team={t('inspector_ia.status')}
   tags={tags}
-  links={[{ href: 'mailto:me@krr.cl', label: t('inspector_ia.contact') }]}
+  links={[
+    { href: BOOKING_URL, label: t('inspector_ia.contact') },
+    { href: 'mailto:me@krr.cl', label: t('inspector_ia.email') },
+  ]}
   backHref={lang === 'en' ? '/en/' : '/'}
   backLabel={t('inspector_ia.back')}
 >

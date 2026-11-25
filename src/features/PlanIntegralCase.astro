@@ -1,6 +1,7 @@
 ---
 import CaseStudy from "@/layouts/CaseStudy.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { BOOKING_URL } from "../consts";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,7 +16,10 @@ const tags = ['PHP 8.4', 'Supabase', 'FastAPI', 'Gemini', 'Google Docs'];
   role={t('plan_integral.eyebrow')}
   team={t('plan_integral.status')}
   tags={tags}
-  links={[{ href: 'mailto:me@krr.cl', label: t('plan_integral.cta') }]}
+  links={[
+    { href: BOOKING_URL, label: t('plan_integral.cta') },
+    { href: 'mailto:me@krr.cl', label: t('plan_integral.email') },
+  ]}
   backHref={lang === 'en' ? '/en/' : '/'}
   backLabel={t('plan_integral.back')}
 >

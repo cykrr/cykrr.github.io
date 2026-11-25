@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { BOOKING_URL } from "../consts";
 import Portfolio from './Portfolio.astro';
 
 const lang = getLangFromUrl(Astro.url);
@@ -17,9 +18,10 @@ const steps = ['step1', 'step2', 'step3', 'step4'] as const;
   <h1 id="intro-title">{t('welcome.hero.title')}</h1>
   <p class="hero-copy">{t('welcome.hero.description')}</p>
   <div class="hero-actions">
-    <a class="button button-primary" href={inspectorPath}>{t('welcome.hero.primary')}</a>
-    <a class="button" href="mailto:me@krr.cl">{t('welcome.hero.secondary')}</a>
+    <a class="button button-primary" href={BOOKING_URL}>{t('welcome.hero.primary')}</a>
+    <a class="button" href={inspectorPath}>{t('welcome.hero.secondary')}</a>
   </div>
+  <p class="hero-note">{t('welcome.hero.note')}</p>
   <ul class="proof">
     {proofs.map((k) => <li>{t(`welcome.proof.${k}`)}</li>)}
   </ul>
@@ -82,5 +84,6 @@ const steps = ['step1', 'step2', 'step3', 'step4'] as const;
 <section class="cta" aria-labelledby="cta-title">
   <h2 id="cta-title">{t('welcome.cta.title')}</h2>
   <p>{t('welcome.cta.text')}</p>
-  <a class="button button-primary" href="mailto:me@krr.cl">{t('welcome.cta.button')}</a>
+  <a class="button button-primary" href={BOOKING_URL}>{t('welcome.cta.button')}</a>
+  <p class="cta-note">{t('welcome.cta.note')}</p>
 </section>
