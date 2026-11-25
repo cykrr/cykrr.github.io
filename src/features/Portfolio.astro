@@ -23,7 +23,7 @@ const groups = [
     items: [
       { key: 'inspector_ia', href: '/portfolio/inspector-ia' },
       { key: 'plan_integral', href: '/portfolio/plan-integral' },
-      { key: 'floreria_coral', href: '/portfolio/floreria-coral' },
+      { key: 'floreria_coral', href: '/portfolio/floreria-coral', live: 'https://floreriacoral.cl' },
     ],
   },
   {
@@ -67,6 +67,7 @@ const groups = [
               ? <a class="name" href={p.href.startsWith('/portfolio') ? localised(p.href) : p.href}>{t(`portfolio.software.${p.key}.title`)}</a>
               : <span class="name">{t(`portfolio.software.${p.key}.title`)}</span>}
             {'src' in p && p.src && <a class="src" href={p.src}>(GitHub)</a>}
+            {'live' in p && p.live && <a class="src" href={p.live}>({t('portfolio.live')})</a>}
             <span class="blurb" set:html={t(`portfolio.software.${p.key}.description`)}></span>
           </li>
         ))}

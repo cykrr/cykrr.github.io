@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const inspectorPath = lang === 'en' ? '/en/portfolio/inspector-ia' : '/portfolio/inspector-ia';
 
-const proofs = ['one', 'two', 'three'] as const;
+const proofs = ['one', 'two', 'three', 'four'] as const;
 const flow = ['capture', 'analysis', 'review', 'procore'] as const;
 const services = ['terrain', 'docs', 'commerce'] as const;
 const steps = ['step1', 'step2', 'step3', 'step4'] as const;
